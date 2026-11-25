@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { garageServices, gateServices } from "@/lib/services";
+import GetAQuoteButton from "@/components/GetAQuoteButton";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -72,12 +73,7 @@ export default function Header() {
                 Blogs
               </Link>
             </nav>
-            <Link
-              href="/freequote"
-              className="inline-flex items-center justify-center gap-[10px] rounded-lg border border-white bg-accent px-3 py-3 text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-white hover:text-accent lg:px-[39px] lg:py-4 lg:text-base"
-            >
-              Get a Quote
-            </Link>
+            <GetAQuoteButton className="px-3 py-3 lg:px-[39px] lg:py-4" />
           </div>
         </div>
 
@@ -107,13 +103,10 @@ export default function Header() {
               <Link href="/blogs" className="py-2" onClick={() => setMobileOpen(false)}>
                 Blogs
               </Link>
-              <Link
-                href="/freequote"
-                className="mt-2 inline-flex items-center justify-center gap-[10px] rounded-lg border border-white bg-accent px-5 py-[15px] text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-white hover:text-accent sm:hidden lg:px-[39px] lg:py-4 lg:text-base"
+              <GetAQuoteButton
+                className="mt-2 px-5 py-[15px] sm:hidden lg:px-[39px] lg:py-4"
                 onClick={() => setMobileOpen(false)}
-              >
-                Get a Quote
-              </Link>
+              />
             </div>
           </div>
         )}

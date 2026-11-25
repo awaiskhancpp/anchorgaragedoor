@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import IconHeading from "@/components/IconHeading";
+import { ACCENT_INVERT_HOVER } from "@/components/buttonStyles";
 
 export default function GetInTouchSection() {
   return (
@@ -18,7 +19,7 @@ export default function GetInTouchSection() {
           className="!gap-x-[10px] !gap-y-[15px]"
           fieldClassName="min-w-0 h-12 !px-4 text-base leading-[1.4]"
           textareaClassName="!h-[121px] !min-h-[121px] resize-y"
-          submitClassName="mt-[10px] inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-lg border border-accent bg-accent px-[39px] py-[5px] text-center text-base capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease sm:col-span-2"
+          submitClassName={`mt-[10px] inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-lg px-[39px] py-[5px] text-center text-base capitalize leading-none sm:col-span-2 ${ACCENT_INVERT_HOVER}`}
           submitLabel="Request A Quote"
           showCaptcha
         />

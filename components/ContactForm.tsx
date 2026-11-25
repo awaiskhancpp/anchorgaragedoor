@@ -2,12 +2,12 @@
 
 import { FormEvent, useState } from "react";
 import { services } from "@/lib/services";
+import { ACCENT_INVERT_HOVER } from "@/components/buttonStyles";
 
 const FIELD_BASE =
   "w-full rounded-none border-0 border-b-[0.8px] border-dark bg-transparent px-1 py-[6px] text-base text-ink placeholder:text-ink/55 focus:border-b-2 focus:outline-none";
 
-const SUBMIT_DEFAULT =
-  "mt-2 inline-flex w-fit items-center justify-center gap-[10px] rounded-lg border border-accent bg-accent px-5 py-[15px] text-center text-sm capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease sm:col-span-2 lg:px-[39px] lg:py-4 lg:text-base";
+const SUBMIT_DEFAULT = `mt-2 inline-flex w-fit items-center justify-center gap-[10px] rounded-lg px-5 py-[15px] text-center text-sm capitalize leading-none sm:col-span-2 lg:px-[39px] lg:py-4 lg:text-base ${ACCENT_INVERT_HOVER}`;
 
 export default function ContactForm({
   className = "",

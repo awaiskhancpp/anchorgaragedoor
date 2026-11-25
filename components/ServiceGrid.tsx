@@ -38,7 +38,7 @@ export default function ServiceGrid({ items }: { items: Service[] }) {
                 Read More
               </Link>
               <span
-                className="relative z-[1] grid h-[30px] w-[30px] flex-none place-items-center before:absolute before:left-[15px] before:top-[-12px] before:z-[-1] before:h-[30px] before:w-[30px] before:rounded-full before:bg-[#f1f5eb] before:transition-all before:duration-[400ms] group-hover:before:bg-white md:h-[50px] md:w-[50px] md:before:h-[50px] md:before:w-[50px] lg:mr-[15px] lg:mt-[15px]"
+                className="hidden md:block relative z-[1] grid h-[30px] w-[30px] flex-none place-items-center before:absolute before:left-[15px] before:top-[-12px] before:z-[-1] before:h-[30px] before:w-[30px] before:rounded-full before:bg-[#f1f5eb] before:transition-all before:duration-[400ms] group-hover:before:bg-white md:h-[50px] md:w-[50px] md:before:h-[50px] md:before:w-[50px] lg:mr-[15px] lg:mt-[15px]"
                 aria-hidden="true"
               >
                 <Image
