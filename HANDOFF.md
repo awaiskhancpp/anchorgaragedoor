@@ -616,6 +616,55 @@ variant reproduces its exact pre-existing classes, so no spacing, color, or
 sizing changed. Verified in the browser (default + hover states) against
 both the live site and the pre-refactor markup.
 
+## Revision 23 — Mobile/tablet audit: service detail page body section
+
+The browser window in this environment can't be resized to test responsive
+breakpoints directly, so verified mobile (≈390px) and tablet (≈830px)
+rendering by embedding same-origin `<iframe>`s at fixed widths and reading
+`getComputedStyle`/`getBoundingClientRect` from inside them — an iframe gets
+its own CSS viewport for media queries regardless of the outer window size.
+
+Found the service detail page's image/text body section
+(`app/service/[slug]/page.tsx`) didn't match the live site below `lg`
+(1025px) at all:
+
+- Live site stacks **text above image** below 768px (reversed from the
+  normal image-then-text source order) via `order`, not plain top-to-bottom
+  stacking. Below 768px the grid was also just a single column with no
+  reordering, so the image appeared above the text — opposite of the live
+  site.
+- The 2-column row layout actually starts at `md` (768px) on the live site,
+  not `lg` (1025px) — confirmed by testing the exact pixel where the layout
+  switches (766px = stacked, 767px = row). Tablet (768–1024px) should already
+  be side-by-side, just narrower, not stacked like mobile.
+- Image panel height was `510px` below `lg`; live site is `450px` at both
+  mobile and tablet, only growing to `600px` at `lg`.
+- Text panel padding was `px-5 py-10` below `lg` (`40px` vertical); live site
+  uses a uniform `20px` (`p-5`) at mobile, then an asymmetric `30/20/20/20`
+  (left/right/top/bottom) from `md` upward — unchanged all the way through
+  desktop, confirmed to be a deliberate asymmetry.
+- Text wasn't vertically centered on the live site below 768px (content is
+  top-aligned there); `items-center` should only apply from `md` upward.
+- Body paragraph font was always the global `17px` base; live site uses
+  `14px`/`21px` line-height below `lg`, stepping up to `17px` only at `lg`.
+- The heading icon and its circular badge were sized backwards — `32px`
+  shrinking to `24px` at `lg` — when the live site actually grows it from
+  `30px` to `50px` at `lg`.
+
+Fixed all of the above with explicit `md:`/`lg:` overrides matching the
+measured values. Also found and fixed the same kind of bug while spot-
+checking `ServiceGrid.tsx`'s cards: border-radius was `15px` below `lg`
+but the live site uses a constant `20px` at every width (verified at six
+widths from 390px to 1536px). Checked `HomeHero`'s mobile/tablet layout
+switch and `ServiceGrid`'s 1-col/2-col grid breakpoint against the live
+site as well — both already matched (768px and 1025px respectively), so
+left unchanged.
+
+This was a targeted pass on the sections above, not an exhaustive sweep of
+every component's mobile/tablet breakpoints — a full audit of the
+remaining sections (trust features, brand gallery, testimonial/stats,
+get-in-touch, footer) would need the same iframe-probing treatment.
+
 ## Running it
 
 ```bash

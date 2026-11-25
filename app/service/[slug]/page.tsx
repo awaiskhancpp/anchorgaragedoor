@@ -57,25 +57,31 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[url('/images/anchor-garage-door-Fav.png')] bg-center bg-no-repeat bg-[length:472px_auto] opacity-[0.06] max-md:bg-[length:300px_auto]"
         />
-        <div className="relative z-10 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-5">
-          <div className="relative min-h-[510px] overflow-hidden lg:min-h-[600px]">
+        <div className="relative z-10 grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-5">
+          <div className="relative order-2 min-h-[450px] overflow-hidden md:order-1 lg:min-h-[600px]">
             <Image
               src={service.bodyImage}
               alt={service.title}
               fill
-              sizes="(min-width: 1025px) 50vw, 100vw"
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover object-center"
             />
           </div>
-          <div className="flex items-center px-5 py-10 lg:px-10 lg:py-5">
+          <div className="order-1 flex p-5 md:order-2 md:items-center md:pl-[30px]">
             <div className="w-full lg:w-4/5">
               <h3 className="mb-5 flex items-center gap-4">
-                <span className="relative z-0 grid h-8 w-8 shrink-0 place-items-center before:absolute before:inset-[-10px] before:-z-10 before:rounded-full before:bg-badge lg:h-6 lg:w-6">
-                  <Image src={service.heroIcon} alt="" width={30} height={30} className="" />
+                <span className="relative z-0 grid h-[30px] w-[30px] shrink-0 place-items-center before:absolute before:inset-[-10px] before:-z-10 before:rounded-full before:bg-badge lg:h-[50px] lg:w-[50px]">
+                  <Image
+                    src={service.heroIcon}
+                    alt=""
+                    width={50}
+                    height={50}
+                    className="h-[30px] w-[30px] lg:h-[50px] lg:w-[50px]"
+                  />
                 </span>
                 {service.title}
               </h3>
-              <div className="space-y-5 text-ink">
+              <div className="space-y-5 text-ink text-[14px] leading-[21px] lg:text-[17px] lg:leading-[1.5]">
                 <p>{service.bodyParagraph}</p>
                 {service.bodyParagraph2 && <p>{service.bodyParagraph2}</p>}
               </div>

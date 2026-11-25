@@ -8,7 +8,7 @@ export default function ServiceGrid({ items }: { items: Service[] }) {
       {items.map((service) => (
         <article
           key={service.slug}
-          className="group grid min-w-0 grid-cols-[40%_minmax(0,1fr)] gap-[15px] overflow-hidden rounded-[15px] border border-[#d8d8d8] bg-white p-[10px] transition-colors duration-[600ms] hover:bg-light md:min-h-[245px] md:grid-cols-[44%_minmax(0,1fr)] md:gap-[35px] lg:min-h-[338px] lg:grid-cols-[44%_minmax(0,1fr)] lg:gap-[50px] lg:rounded-[20px] lg:p-5"
+          className="group grid min-w-0 grid-cols-[40%_minmax(0,1fr)] gap-[15px] overflow-hidden rounded-[20px] border border-[#d8d8d8] bg-white p-[10px] transition-colors duration-[600ms] hover:bg-light md:min-h-[245px] md:grid-cols-[44%_minmax(0,1fr)] md:gap-[35px] lg:min-h-[338px] lg:grid-cols-[44%_minmax(0,1fr)] lg:gap-[50px] lg:p-5"
         >
           <div className="relative min-h-[190px] min-w-0 overflow-hidden rounded-[7px]  md:min-h-[215px] lg:min-h-[296px]">
             <Image
