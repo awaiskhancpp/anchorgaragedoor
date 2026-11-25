@@ -56,8 +56,8 @@ export default function Footer() {
             <Image
               src="/images/anchor-garage-door-logo-white.png"
               alt="Anchor Garage Door and Gate Services, Inc"
-              width={1511}
-              height={433}
+              width={270}
+              height={77}
               className="block h-auto w-1/2 max-w-none lg:w-[55%]"
             />
 

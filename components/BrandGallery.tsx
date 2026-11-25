@@ -3,7 +3,7 @@ import { EyebrowIcon } from "@/components/icons";
 
 export default function BrandGallery({ title, logos }: { title: string; logos: string[] }) {
   return (
-    <section className="mb-[30px] bg-white px-[10px] pb-[30px] pt-[50px] md:mb-[60px] md:pb-[50px] md:pt-[100px]">
+    <section className="mb-[30px] bg-white px-[10px] pb-[30px] pt-[50px] md:mb-[20px] md:pb-[50px] md:pt-[84px]">
       <div className="mx-auto w-full max-w-[1320px]">
         <p className="flex items-center justify-center gap-2 font-heading text-base font-semibold capitalize leading-normal text-eyebrow md:text-xl md:leading-[25.5px]">
           <EyebrowIcon className="h-9 w-9 flex-none" />
@@ -12,7 +12,7 @@ export default function BrandGallery({ title, logos }: { title: string; logos: s
         <h2 className="text-center font-medium capitalize text-ink">
           {title}
         </h2>
-        <div className="mt-[30px] grid grid-cols-3 items-stretch md:mt-[50px] md:grid-cols-5">
+        <div className="mt-[30px] grid grid-cols-3 items-stretch md:mt-[70px] md:grid-cols-5">
           {logos.map((logo) => (
             <figure
               key={logo}

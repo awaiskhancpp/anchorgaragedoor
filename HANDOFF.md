@@ -677,6 +677,45 @@ image optimizer. Re-verified the service detail pages render correctly
 against this change — no layout impact, since the hero image is positioned
 with `fill` + `object-cover`, which is unaffected by `unoptimized`.
 
+## Revision 25 — Full homepage spacing audit (text size, line-height,
+letter-spacing, inter-section spacing)
+
+Checked letter-spacing across every heading, button, and label on the live
+site — it's `normal` everywhere, confirmed matching.
+
+Built a full section-by-section vertical position map by matching every
+heading's Y-position between the live site and this build (same-origin
+iframe technique from Revision 23, since this environment's browser window
+can't be resized). Found and fixed two real bugs, both in the shared
+`BrandGallery.tsx` component ("Our Trusted Partners", used for both the
+Garage and Gate sections):
+
+- Top padding was 16px too much (`pt-[100px]` → `pt-[84px]`).
+- Gap between the heading and the logo grid was 20px too small
+  (`mt-[50px]` → `mt-[70px]`).
+- Gap between the logo grid and the next section was 40px too much
+  (`mb-[60px]` → `mb-[20px]`).
+
+Also corrected `TestimonialStatsSection.tsx`'s `lg:pt-[130px]` (from
+Revision 22) down to `lg:pt-[100px]` — re-measured directly against the
+live site and confirmed `130px` had overshot the real value.
+
+While investigating, initially misread `TrustFeatures.tsx`'s padding from a
+nested wrapper div rather than the actual background-colored section box,
+which would have "corrected" `py-[110px] pb-[60px]` to `100px`/`50px` — a
+regression. Caught it by cross-checking with a second, independent
+measurement method (the heading's absolute position relative to the true
+section box) before committing to it, and left `TrustFeatures.tsx`
+unchanged.
+
+After these fixes, every heading from the hero through "What we do" matches
+the live site to within 2px, several at exact 0px drift. A residual ~12px
+drift remains, isolated to the Gate instance of `ServiceSection.tsx`
+specifically (the identical Garage instance matches to within 2px) — likely
+a content-driven line-wrap artifact from the header row's `items-end`
+alignment given the two instances' description text differ in length, not
+a CSS bug, so left unchanged rather than guess at a fix.
+
 ## Running it
 
 ```bash

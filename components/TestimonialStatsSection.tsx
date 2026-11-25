@@ -49,7 +49,7 @@ function CustomerAvatars() {
 
 export default function TestimonialStatsSection() {
   return (
-    <section className="overflow-hidden bg-light bg-[url('/images/testimonial-left-circle.png')] bg-left-top bg-no-repeat px-5 pb-8 pt-[48px] md:pb-10 md:pt-[70px] lg:px-0 lg:pb-[50px] lg:pt-[130px]">
+    <section className="overflow-hidden bg-light bg-[url('/images/testimonial-left-circle.png')] bg-left-top bg-no-repeat px-5 pb-8 pt-[48px] md:pb-10 md:pt-[70px] lg:px-0 lg:pb-[50px] lg:pt-[100px]">
       <div className="mx-auto grid min-h-0 w-full max-w-[1320px] grid-cols-1 gap-12 md:min-h-[601px] lg:grid-cols-2 lg:gap-5">
         <div className="min-w-0 pr-0 lg:pr-[10px]">
           <h2 className="relative flex flex-col items-start text-[36px] font-bold leading-[1.2] text-ink md:text-[clamp(40px,7vw,55px)] lg:leading-[82px] lg:text-[55px]">
