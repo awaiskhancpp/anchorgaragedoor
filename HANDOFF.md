@@ -665,6 +665,18 @@ every component's mobile/tablet breakpoints — a full audit of the
 remaining sections (trust features, brand gallery, testimonial/stats,
 get-in-touch, footer) would need the same iframe-probing treatment.
 
+## Revision 24 — Higher-resolution hero images; unoptimized InnerHero image
+
+Replaced five service hero images (`hero-access-control-installation.webp`,
+`hero-garage-door-maintenance.png`, `hero-garage-door-off-track-repair.png`,
+`hero-gate-opener-installation.png`, `hero-new-garage-door-installation.png`)
+with higher-resolution versions, and added the `unoptimized` prop to
+`InnerHero.tsx`'s background `<Image>` so these (and every other inner-hero
+photo) are served at their original resolution rather than through Next's
+image optimizer. Re-verified the service detail pages render correctly
+against this change — no layout impact, since the hero image is positioned
+with `fill` + `object-cover`, which is unaffected by `unoptimized`.
+
 ## Running it
 
 ```bash
