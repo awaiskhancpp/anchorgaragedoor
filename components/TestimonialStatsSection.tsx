@@ -21,10 +21,28 @@ function ArrowIcon({ className }: { className?: string }) {
 
 function CustomerAvatars() {
   return (
-    <div className="flex w-[85px] flex-none items-center justify-end" aria-hidden="true">
-      <span className="ml-0 h-10 w-10 flex-none overflow-hidden rounded-full border-2 border-[#272727] bg-[url('/images/testimonial-technician.png')] bg-[length:180px_auto] bg-no-repeat bg-[18%_20%]" />
-      <span className="-ml-[10px] h-10 w-10 flex-none overflow-hidden rounded-full border-2 border-[#272727] bg-[url('/images/testimonial-technician.png')] bg-[length:180px_auto] bg-no-repeat bg-[50%_20%]" />
-      <span className="-ml-[10px] h-10 w-10 flex-none overflow-hidden rounded-full border-2 border-[#272727] bg-[url('/images/testimonial-technician.png')] bg-[length:180px_auto] bg-no-repeat bg-[84%_20%]" />
+    <div className="relative h-[41px] w-[85px] flex-none" aria-hidden="true">
+      <Image
+        src="/images/customer-avatar-2.jpg"
+        alt=""
+        width={40}
+        height={40}
+        className="absolute left-0 top-0 h-10 w-10 rounded-full border-2 border-[#272727] object-cover"
+      />
+      <Image
+        src="/images/customer-avatar-1.jpg"
+        alt=""
+        width={40}
+        height={40}
+        className="absolute left-[22px] top-0 h-10 w-10 rounded-full border-2 border-[#272727] object-cover"
+      />
+      <Image
+        src="/images/customer-avatar-0.jpg"
+        alt=""
+        width={40}
+        height={40}
+        className="absolute left-[44px] top-0 h-10 w-10 rounded-full border-2 border-[#272727] object-cover"
+      />
     </div>
   );
 }
@@ -61,18 +79,18 @@ export default function TestimonialStatsSection() {
           <p className="text-[17px] leading-normal text-ink">CUSTOMER</p>
         </div>
 
-        <div className="grid min-h-0 min-w-0 grid-rows-[auto_auto] gap-5 p-[10px] md:min-h-[601px] md:grid-rows-[319px_235px]">
-          <div className="flex min-h-[220px] min-w-0 md:min-h-0">
-            <div className="relative min-w-0 flex-none basis-[58.75%] overflow-hidden rounded-l-3xl">
+        <div className="grid min-h-0 min-w-0 grid-rows-[auto_auto] gap-5 p-[10px] md:min-h-[601px] md:grid-rows-[auto_235px]">
+          <div className="relative flex min-h-[220px] min-w-0 md:min-h-0">
+            <div className="relative aspect-[380/340] min-w-0 flex-none basis-[58.75%] overflow-hidden rounded-l-3xl">
               <Image
-                src="/images/testimonial-technician.png"
+                src="/images/Rectangle-23805.png"
                 alt="Garage door technician at work"
                 fill
                 sizes="(min-width: 1025px) 35vw, 100vw"
                 className="object-cover"
               />
             </div>
-            <div className="relative z-[1] flex min-w-0 flex-1 flex-col items-center justify-center rounded-3xl bg-white text-ink">
+            <div className="absolute right-0 top-2 z-[1] flex h-[calc(100%-16px)] w-[45%] min-w-0 flex-col items-center justify-center rounded-3xl bg-white text-ink">
               <div className="absolute -top-[22px] right-5 grid h-[60px] w-[60px] place-items-center rounded-full bg-accent text-white shadow-[0_18px_28px_rgb(15_14_14_/_20%)]">
                 <TrendIcon className="h-[34px] w-[34px]" />
               </div>

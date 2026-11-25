@@ -3,6 +3,7 @@ export type PostBlock = { type: "p" | "h2" | "h3"; text: string };
 export type BlogPost = {
   slug: string;
   title: string;
+  category: "door-installation" | "overhead-doors";
   image: string;
   date: string;
   excerpt: string;
@@ -13,6 +14,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "commercial-vs-residential-garage-doors",
     title: "Commercial vs. Residential Garage Doors",
+    category: "door-installation",
     image: "/images/Garage-DoorGate-Services-44.jpg",
     date: "December 27, 2024",
     excerpt:
@@ -56,6 +58,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "many-pros-and-cons-of-glass-garage-doors",
     title: "Many Pros and Cons of Glass Garage Doors",
+    category: "door-installation",
     image: "/images/Garage-DoorGate-Services-46.jpg",
     date: "December 27, 2024",
     excerpt:
@@ -126,6 +129,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "when-its-time-to-call-garage-door-services",
     title: "When It’s Time to Call Garage Door Services",
+    category: "overhead-doors",
     image: "/images/Garage-DoorGate-Services-47.jpg",
     date: "December 27, 2024",
     excerpt:
@@ -169,6 +173,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-5-tips-for-a-quieter-garage-door",
     title: "Best 5 Tips for a Quieter Garage Door",
+    category: "door-installation",
     image: "/images/Garage-DoorGate-Services-43.jpg",
     date: "December 27, 2024",
     excerpt:
@@ -212,6 +217,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "commercial-garage-doors-vs-residential-garage-doors",
     title: "Commercial Garage Doors vs. Residential Garage Doors",
+    category: "overhead-doors",
     image: "/images/3rd.webp",
     date: "December 27, 2024",
     excerpt:
@@ -260,6 +266,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "verify-that-opener-is-still-plugged-into-the-electric-outlet",
     title: "Verify That Opener Is Still Plugged Into The Electric Outlet",
+    category: "door-installation",
     image: "/images/Garage-DoorGate-Services-45.jpg",
     date: "December 27, 2024",
     excerpt:

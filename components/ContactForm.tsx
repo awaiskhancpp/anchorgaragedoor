@@ -48,7 +48,7 @@ export default function ContactForm({
       <input required type="email" name="email" placeholder="Email Address" className={field} />
       <input required type="tel" name="phone" placeholder="Phone Number" className={field} />
       <input required name="zip" placeholder="Zip Code" className={field} />
-      <select required name="service" defaultValue="" className={field}>
+      <select required name="service" defaultValue="" className={`${field} text-ink/55`}>
         <option value="" disabled>
           Type of Service
         </option>
@@ -66,15 +66,15 @@ export default function ContactForm({
       />
       <input type="text" name="hp" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       {showCaptcha && (
-        <div className="h-[72px]" aria-hidden="true">
-          <div className="flex h-[47px] w-[218px] items-center gap-[7px] border border-[#d9d9d9] bg-[#f7f7f7] px-[7px] text-[10px] leading-[1.1] text-[#202124]">
-            <span className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-full bg-[#2e9b57] text-base font-bold text-white">
+        <div className="h-[65px]" aria-hidden="true">
+          <div className="flex h-[65px] w-[300px] items-center gap-[8px] border border-[#d9d9d9] bg-[#f7f7f7] px-[10px] text-[13px] leading-[1.1] text-[#202124]">
+            <span className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#2e9b57] text-xl font-bold text-white">
               ✓
             </span>
             <span className="whitespace-nowrap">Success!</span>
-            <div className="ml-auto text-right text-[8px] font-bold tracking-[0.04em]">
+            <div className="ml-auto text-right text-[10px] font-bold tracking-[0.04em]">
               <span className="text-[#f58220]">CLOUDFLARE</span>
-              <small className="block text-[6px] font-normal tracking-normal text-[#555]">Privacy - Help</small>
+              <small className="block text-[8px] font-normal tracking-normal text-[#555]">Privacy - Help</small>
             </div>
           </div>
         </div>
