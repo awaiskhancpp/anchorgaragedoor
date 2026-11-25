@@ -6,11 +6,12 @@ type ServiceSectionProps = {
   eyebrow: string;
   description: string;
   items: Service[];
+  id?: string;
 };
 
-export default function ServiceSection({ eyebrow, description, items }: ServiceSectionProps) {
+export default function ServiceSection({ eyebrow, description, items, id }: ServiceSectionProps) {
   return (
-    <section className="bg-white px-5 pb-10 pt-8 text-ink md:pb-4 md:pt-5 lg:pt-7">
+    <section id={id} className="bg-white px-5 pb-10 pt-8 text-ink md:pb-4 md:pt-5 lg:pt-7">
       <div className="mx-auto max-w-[1320px]">
         <div className="mb-6 md:grid md:grid-cols-2 md:items-end md:gap-5 md:mb-5 lg:mb-10">
           <div className="min-w-0">

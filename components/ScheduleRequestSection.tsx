@@ -1,10 +1,17 @@
 import QuickScheduleForm from "@/components/QuickScheduleForm";
-import { HouseIcon, PhoneIconFilled, ScheduleChatIcon } from "@/components/icons";
+import { HouseIcon, PhoneIconFilled, ScheduleChatIcon, ScrollDownIcon } from "@/components/icons";
 
 export default function ScheduleRequestSection() {
   return (
     <section className="bg-white px-[10px] py-[65px] max-md:py-5">
       <div className="relative mx-auto min-h-[442px] max-w-[1320px] rounded-[20px] bg-dark px-[57px] py-[65px] shadow-[14px_0_42px_rgba(8,15,52,0.06)] max-[1600px]:min-h-[353px] max-[1600px]:px-[46px] max-[1600px]:pb-3 max-[1600px]:pt-[52px] max-md:rounded-[20px] max-md:px-5 max-md:pb-10 max-md:pt-[100px]">
+        <a
+          href="#scroll-down"
+          aria-label="Scroll down"
+          className="absolute left-0 top-[-170px] z-10 flex h-[54px] w-[54px] items-center justify-center rounded-full bg-white p-[17px] text-ink transition-colors hover:bg-light max-[1024px]:top-[-30px] max-md:left-5 max-md:top-5"
+        >
+          <ScrollDownIcon className="h-5 w-auto" />
+        </a>
         <div className="pointer-events-none absolute -top-10 right-0 flex h-20 w-20 items-center justify-center rounded-full bg-light">
           <ScheduleChatIcon className="h-[34px] w-[34px]" />
         </div>

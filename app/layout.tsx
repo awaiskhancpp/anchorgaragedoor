@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${satoshi.variable} ${plusJakarta.variable}`}>
+    <html lang="en" className={`${satoshi.variable} ${plusJakarta.variable} scroll-smooth`}>
       <body className="flex min-h-screen flex-col bg-white text-ink antialiased">
         <Header />
         <main className="flex-1">{children}</main>

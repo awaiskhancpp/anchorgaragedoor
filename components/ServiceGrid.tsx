@@ -8,9 +8,9 @@ export default function ServiceGrid({ items }: { items: Service[] }) {
       {items.map((service) => (
         <article
           key={service.slug}
-          className="group grid min-w-0 grid-cols-1 gap-[14px] overflow-hidden rounded-[15px] border border-[#dedede] bg-white p-[14px] md:min-h-[245px] md:grid-cols-[44%_minmax(0,1fr)] md:gap-[35px] lg:min-h-[338px] lg:grid-cols-[48%_minmax(0,1fr)] lg:gap-[30px] lg:rounded-[20px] lg:p-5"
+          className="group grid min-w-0 grid-cols-1 gap-[14px] overflow-hidden rounded-[15px] border border-[#d8d8d8] bg-white p-[14px] transition-colors duration-[600ms] hover:bg-[#f1f7fb] md:min-h-[245px] md:grid-cols-[44%_minmax(0,1fr)] md:gap-[35px] lg:min-h-[338px] lg:grid-cols-[48%_minmax(0,1fr)] lg:gap-[30px] lg:rounded-[20px] lg:p-5"
         >
-          <div className="relative min-h-[190px] min-w-0 overflow-hidden rounded-[7px] md:min-h-[215px] lg:min-h-[296px]">
+          <div className="relative min-h-[190px] min-w-0 overflow-hidden rounded-[7px]  md:min-h-[215px] lg:min-h-[296px]">
             <Image
               src={service.bodyImage}
               alt={service.title}
@@ -20,7 +20,7 @@ export default function ServiceGrid({ items }: { items: Service[] }) {
             />
           </div>
 
-          <div className="flex min-h-[185px] min-w-0 flex-col justify-between pb-[2px] pl-[2px] pr-[2px] pt-0 md:min-h-0 md:pb-0 md:pl-[10px] md:pr-2 md:pt-[7px] lg:p-[10px] lg:pb-0">
+          <div className="flex min-h-[185px] min-w-0 flex-col justify-between pb-[2px] pl-[2px] pr-[2px] pt-0 md:min-h-0 md:pb-0 md:pl-[10px]  md:pr-2 md:pt-[7px] lg:p-[10px] lg:pb-0">
             <div className="min-w-0">
               <h3 className="mb-[10px] text-base font-bold leading-[1.2] text-ink lg:mb-[15px] lg:text-[22px]">
                 {service.title}
@@ -33,15 +33,24 @@ export default function ServiceGrid({ items }: { items: Service[] }) {
             <div className="flex min-h-12 items-center justify-between gap-3 lg:min-h-[59px]">
               <Link
                 href={`/service/${service.slug}`}
-                className="inline-flex min-h-8 items-center justify-center rounded-[5px] border border-accent bg-accent px-3 py-2 text-[11px] leading-none text-white no-underline transition hover:bg-white hover:text-accent lg:min-h-11 lg:rounded-[8px] lg:px-[15px] lg:py-[13px] lg:text-sm"
+                className="inline-flex min-h-8 items-center justify-center rounded-[5px] border border-accent bg-accent px-3 py-2 text-[11px] leading-none text-white no-underline transition-[background-color,border-color,color] duration-[600ms] hover:bg-white hover:text-accent lg:min-h-11 lg:rounded-[8px] lg:px-[15px] lg:py-[13px] lg:text-sm"
               >
                 Read More
               </Link>
               <span
-                className="grid h-12 w-12 flex-none place-items-center rounded-full bg-[#f0f5e9] lg:h-[59px] lg:w-[65px] lg:bg-transparent"
+                className="relative z-[1] grid h-[30px] w-[30px] flex-none place-items-center before:absolute before:left-[15px] before:top-[-12px] before:z-[-1] before:h-[30px] before:w-[30px] before:rounded-full before:bg-[#f1f5eb] before:transition-all before:duration-[400ms] group-hover:before:bg-white md:h-[50px] md:w-[50px] md:before:h-[50px] md:before:w-[50px] lg:mr-[15px] lg:mt-[15px]"
                 aria-hidden="true"
               >
-                <Image src={service.heroIcon} alt="" width={46} height={46} className="h-auto max-h-[46px] w-auto max-w-[46px]" />
+                {/* <div className="h-4 w-4 bg-[#F1F5EB]">
+
+                </div> */}
+                <Image
+                  src={service.heroIcon}
+                  alt=""
+                  width={46}
+                  height={46}
+                  className="relative z-[1] h-auto max-h-[30px] w-auto max-w-[30px] md:max-h-[46px] md:max-w-[46px]"
+                />
               </span>
             </div>
           </div>

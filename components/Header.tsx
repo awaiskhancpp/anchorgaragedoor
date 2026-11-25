@@ -59,7 +59,7 @@ export default function Header() {
             </nav>
             <Link
               href="/freequote"
-              className="hidden items-center justify-center gap-[10px] rounded-lg border border-accent bg-accent px-5 py-[15px] text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease sm:inline-flex lg:px-[39px] lg:py-4 lg:text-base"
+              className="hidden items-center justify-center gap-[10px] rounded-lg border border-white bg-accent px-5 py-[15px] text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-white hover:text-accent sm:inline-flex lg:px-[39px] lg:py-4 lg:text-base"
             >
               Get a Quote
             </Link>
@@ -101,7 +101,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/freequote"
-                className="mt-2 inline-flex items-center justify-center gap-[10px] rounded-lg border border-accent bg-accent px-5 py-[15px] text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease sm:hidden lg:px-[39px] lg:py-4 lg:text-base"
+                className="mt-2 inline-flex items-center justify-center gap-[10px] rounded-lg border border-white bg-accent px-5 py-[15px] text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-white hover:text-accent sm:hidden lg:px-[39px] lg:py-4 lg:text-base"
                 onClick={() => setMobileOpen(false)}
               >
                 Get a Quote

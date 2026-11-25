@@ -77,7 +77,7 @@ export default function HomeHero() {
 
   return (
     <section
-      className="relative h-[900px] touch-pan-y cursor-grab overflow-hidden bg-accent select-none sm:h-[820px] lg:h-[700px]"
+      className="relative h-[900px] touch-pan-y cursor-grab overflow-hidden bg-accent select-none sm:h-[820px] md:h-[700px]"
       aria-label="Featured services"
       style={{ cursor: isDragging ? "grabbing" : "grab" }}
       onPointerDown={handlePointerDown}
@@ -91,18 +91,18 @@ export default function HomeHero() {
       >
         {slides.map((slide, index) => (
           <article key={slide.image} className="relative h-full w-1/2 shrink-0" aria-hidden={index !== active}>
-            <div className="absolute left-0 right-0 top-0 h-[36%] lg:right-auto lg:bottom-0 lg:h-auto lg:w-[65.05%]">
+            <div className="absolute left-0 right-0 top-0 h-[36%] md:right-auto md:bottom-0 md:h-auto md:w-[65.05%]">
               <Image
                 src={slide.image}
                 alt=""
                 fill
                 priority={index === 0}
-                sizes="(min-width: 1025px) 65vw, 100vw"
+                sizes="(min-width: 768px) 65vw, 100vw"
                 className="object-cover"
               />
             </div>
 
-            <div className="absolute left-0 right-0 bottom-0 flex h-[64%] flex-col items-center justify-center gap-5 overflow-hidden bg-accent px-6 py-10 text-center text-white sm:px-12 sm:py-12 lg:left-auto lg:right-0 lg:top-0 lg:h-auto lg:w-[34.95%] lg:px-5">
+            <div className="absolute left-0 right-0 bottom-0 flex h-[64%] flex-col items-center justify-center gap-5 overflow-hidden bg-accent px-6 py-10 text-center text-white sm:px-12 sm:py-12 md:left-auto md:right-0 md:top-0 md:h-auto md:w-[34.95%] md:px-[10px] md:py-[15px]">
               <p className="flex items-center gap-2 text-base font-normal text-white">
                 <HouseIcon className="h-5 w-5 shrink-0" />
                 Welcome to Anchor Garage Door and Gate Services
@@ -129,7 +129,7 @@ export default function HomeHero() {
         ))}
       </div>
 
-      <div className="absolute bottom-6 left-6 flex gap-2 sm:left-12 lg:left-14">
+      <div className="absolute left-1/2 top-[80%] flex -translate-x-1/2 -translate-y-1/2 gap-[10px] max-md:hidden min-[1250px]:left-[calc(10vw+50px)] min-[1250px]:translate-x-0 min-[1250px]:translate-y-0">
         {slides.map((slide, index) => (
           <button
             key={slide.image}
@@ -138,7 +138,7 @@ export default function HomeHero() {
             aria-current={index === active}
             onPointerDown={(event) => event.stopPropagation()}
             onClick={() => goToSlide(index)}
-            className={`transition-all ${index === active ? "h-2 w-10 bg-accent" : "h-0.5 w-20 bg-white"}`}
+            className={`transition-all duration-300 hover:bg-accent ${index === active ? "h-2 w-10 bg-accent" : "h-0.5 w-20 bg-white"}`}
           />
         ))}
       </div>

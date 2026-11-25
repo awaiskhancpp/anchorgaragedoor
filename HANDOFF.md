@@ -501,6 +501,31 @@ the same left and right alignment on wide screens. Replaced the eyebrow house
 icon markup with the original SVG structure and preserved its original
 viewBox/aspect ratio, including its original 38px desktop rendering size.
 
+## Revision 16 — ServiceGrid icon circle and hover state matched
+
+Matched the original ServiceGrid hover behavior: exact #D8D8D8 card border,
+#F1F7FB card hover background, 600ms card transition, white icon-circle
+hover state, #F1F5EB normal icon circle with the original 50px/offset
+pseudo-element geometry, and the original button color swap. Kept the
+implementation in Tailwind utilities inside `components/ServiceGrid.tsx`.
+
+## Revision 17 — Hero split, pagination, and scroll control matched
+
+Matched the original homepage hero breakpoint and controls. The image and blue
+content panel now stay in the original 65%/35% split from tablet widths
+upward, with the original 700px desktop height. Pagination bars use the
+original 40px by 8px active bar, 80px by 2px inactive bar, 10px spacing,
+centered tablet positioning, and the 1250px desktop left offset. Added the
+original overlapping white circular scroll-down control above the schedule card
+and wired it to the first service section.
+
+## Revision 18 — Smooth scroll and header CTA hover matched
+
+Enabled smooth anchor scrolling for the scroll-down control. Matched the live
+header `Get a Quote` button by using a white normal-state border and changing
+to the accent-blue border, white background, and accent-blue text on hover for
+both desktop and mobile header CTAs.
+
 ## Running it
 
 ```bash

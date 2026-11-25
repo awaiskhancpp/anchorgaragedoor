@@ -30,6 +30,7 @@ export default function Home() {
       <ScheduleRequestSection />
 
       <ServiceSection
+        id="scroll-down"
         eyebrow="GARAGE DOOR INSTALLATION & REPAIR"
         description="We prioritize speed and efficiency without compromising on quality. Let us handle all your garage door needs, from minor repairs to full installations."
         items={garageServices}

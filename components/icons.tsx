@@ -68,3 +68,14 @@ export function ScheduleChatIcon({ className }: { className?: string }) {
   );
 }
 
+export function ScrollDownIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 22 26" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M21.9159 16.2618L20.0796 14.3327L12.7346 20.7722L12.7346 0.297222L10.1114 0.0692585L10.1114 20.5443L2.76642 12.8282L0.930166 14.4381L11.423 25.461L21.9159 16.2618Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
