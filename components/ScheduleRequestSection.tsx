@@ -1,10 +1,10 @@
 import QuickScheduleForm from "@/components/QuickScheduleForm";
-import { HouseIcon, PhoneIconFilled, ScheduleChatIcon, ScrollDownIcon } from "@/components/icons";
+import { EyebrowIcon, PhoneIconFilled, ScheduleChatIcon, ScrollDownIcon } from "@/components/icons";
 
 export default function ScheduleRequestSection() {
   return (
     <section className="bg-white px-[10px] py-[65px] max-md:py-5">
-      <div className="relative mx-auto min-h-[442px] max-w-[1320px] rounded-[20px] bg-dark px-[57px] py-[65px] shadow-[14px_0_42px_rgba(8,15,52,0.06)] max-[1600px]:min-h-[353px] max-[1600px]:px-[46px] max-[1600px]:pb-3 max-[1600px]:pt-[52px] max-md:rounded-[20px] max-md:px-5 max-md:pb-10 max-md:pt-[100px]">
+      <div className="relative mx-auto min-h-[350px] max-w-[1320px] rounded-[20px] bg-dark px-[57px] py-[65px] shadow-[14px_0_42px_rgba(8,15,52,0.06)] max-[1600px]:px-[46px] max-[1600px]:pb-3 max-[1600px]:pt-[52px] max-md:rounded-[20px] max-md:px-5 max-md:pb-10 max-md:pt-[100px]">
         <a
           href="#scroll-down"
           aria-label="Scroll down"
@@ -20,7 +20,7 @@ export default function ScheduleRequestSection() {
           <div className="min-w-0">
             <div className="flex items-center gap-[19px] max-[1600px]:gap-4">
               <span className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full bg-white max-[1600px]:h-[54px] max-[1600px]:w-[54px]">
-                <HouseIcon className="h-[27px] w-[27px] text-[#f36827]" />
+                <EyebrowIcon className="h-[27px] w-[29px]" />
               </span>
               <h2 className="m-0 font-medium text-white lg:text-[32px]">
                 Schedule A Service Request

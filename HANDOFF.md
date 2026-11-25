@@ -526,6 +526,23 @@ header `Get a Quote` button by using a white normal-state border and changing
 to the accent-blue border, white background, and accent-blue text on hover for
 both desktop and mobile header CTAs.
 
+## Revision 19 — Hero Get Started hover matched
+
+Matched the original hero `Get Started` CTA hover state: the white button
+changes to `#0E1E28` with white text and the dark border, with the existing
+smooth color transition preserved.
+
+## Revision 20 — Homepage desktop audit corrections
+
+Rechecked the homepage against the live site and corrected the current phone
+number to `(833) 200-4087` in the homepage header, hero, schedule card, and
+footer. Matched the desktop header container spacing, preserved the original
+mobile/tablet control order, changed the service grid to the original
+two-column desktop/one-column tablet layout, restored the original horizontal
+service-card geometry, and removed the schedule card height override that was
+compressing it at common desktop widths. The schedule heading now uses the
+original orange eyebrow SVG.
+
 ## Running it
 
 ```bash

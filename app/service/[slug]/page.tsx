@@ -6,6 +6,7 @@ import BrandGallery from "@/components/BrandGallery";
 import ServiceGrid from "@/components/ServiceGrid";
 import TrustFeatures from "@/components/TrustFeatures";
 import { services, garageServices, garageBrandLogos } from "@/lib/services";
+import GetInTouchSection from "@/components/GetInTouchSection";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -51,21 +52,34 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <>
       <InnerHero title={service.title} description={service.shortDescription} image={service.heroImage} />
 
-      <section className="py-14 lg:py-20">
-        <div className="mx-auto max-w-[1320px] px-5 sm:px-8 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
-          <Image
-            src={service.bodyImage}
-            alt={service.title}
-            width={700}
-            height={500}
-            className="h-auto w-full rounded-2xl object-cover"
-          />
-          <div>
-            <h3 className="mb-5 flex items-center gap-4">
-              <Image src={service.heroIcon} alt="" width={40} height={40} className="h-10 w-10" />
-              {service.title}
-            </h3>
-            <p className="text-ink/70">{service.bodyParagraph}</p>
+      <section className="relative isolate overflow-hidden bg-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[url('/images/anchor-garage-door-Fav.png')] bg-center bg-no-repeat bg-[length:472px_auto] opacity-[0.06] max-md:bg-[length:300px_auto]"
+        />
+        <div className="relative z-10 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-5">
+          <div className="relative min-h-[510px] overflow-hidden lg:min-h-[600px]">
+            <Image
+              src={service.bodyImage}
+              alt={service.title}
+              fill
+              sizes="(min-width: 1025px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="flex items-center px-5 py-10 lg:px-10 lg:py-5">
+            <div className="w-full lg:w-4/5">
+              <h3 className="mb-5 flex items-center gap-4">
+                <span className="relative z-0 grid h-8 w-8 shrink-0 place-items-center before:absolute before:inset-[-10px] before:-z-10 before:rounded-full before:bg-[#f1f5eb] lg:h-6 lg:w-6">
+                  <Image src={service.heroIcon} alt="" width={30} height={30} className="" />
+                </span>
+                {service.title}
+              </h3>
+              <div className="space-y-5 text-ink">
+                <p>{service.bodyParagraph}</p>
+                {service.bodyParagraph2 && <p>{service.bodyParagraph2}</p>}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -80,6 +94,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       <TrustFeatures heading="What we do" items={whatWeDo} />
+      <GetInTouchSection/>
     </>
   );
 }

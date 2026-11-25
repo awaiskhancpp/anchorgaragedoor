@@ -7,10 +7,11 @@ export type Service = {
   bodyImage: string;
   shortDescription: string;
   bodyParagraph: string;
+  bodyParagraph2?: string;
 };
 
 const heroImages: Record<string, string> = {
-  "broken-spring-repair": "/images/hero-broken-spring-repair.png",
+  "broken-spring-repair": "/images/hero-broken-spring-repair-original.png",
   "garage-door-off-track-repair": "/images/hero-garage-door-off-track-repair.png",
   "broken-cable-repair": "/images/hero-broken-cable-repair.jpeg",
   "new-garage-door-installation": "/images/hero-new-garage-door-installation.png",
@@ -49,7 +50,9 @@ const rawServices: ServiceInput[] = [
     shortDescription:
       "Springs can snap due to time and overuse, a new spring can give your door a new life.",
     bodyParagraph:
-      "A broken spring on a garage door is vital to your door’s overall function and smoothness. If your door is malfunctioning and you suspect it is due to the spring, it’s in your best interest to get it assessed as soon as possible, as using a door with a broken spring can cause further issues, which you don’t want. A broken spring can be caused by old age (so if your springs are old, this is most likely the cause), overuse, and simply random malfunction, sometimes caused by lower-grade materials.",
+      "A broken spring on a garage door is vital to your door’s overall function and smoothness. If your door is malfunctioning and you suspect it is due to the spring, it’s in your best interest to get it assessed as soon as possible, as using a door with a broken spring can cause further issues, which you don’t want.",
+    bodyParagraph2:
+      "A broken spring can be caused by old age (so if your springs are old, this is most likely the cause), overuse, and simply random malfunction, sometimes caused by lower-grade materials.",
   },
   {
     slug: "garage-door-off-track-repair",

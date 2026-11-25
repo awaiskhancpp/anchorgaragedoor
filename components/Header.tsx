@@ -2,20 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { garageServices, gateServices } from "@/lib/services";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<"garage" | "gate" | null>(null);
+  const pathname = usePathname();
 
   return (
     <>
       <div className="bg-accent text-white">
-        <div className="mx-auto max-w-[1320px] px-5 sm:px-8 flex flex-wrap items-center justify-between gap-2 py-[15px] text-sm">
-          <a href="tel:8333494283" className="flex items-center text-[16px] gap-2">
+        <div className="mx-auto flex max-w-[1340px] flex-wrap items-center justify-between gap-2 px-[10px] py-[15px] text-sm">
+          <a href="tel:8332004087" className="flex items-center text-[16px] gap-2">
             <PhoneIcon />
-            Call us for a FREE Estimate. Dial Now <span className="font-bold text-[20px]">(833) 349-4283</span>
+            Call us for a FREE Estimate. Dial Now <span className="font-bold text-[20px]">(833) 200-4087</span>
           </a>
           <span className="flex items-center gap-2 text-[17px]">
             <ClockIcon />
@@ -25,68 +27,74 @@ export default function Header() {
       </div>
 
       <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <div className="mx-auto max-w-[1320px] px-5 flex items-center justify-between gap-4 py-3">
-          <Link href="/" className="shrink-0">
+        <div className="mx-auto flex max-w-[1340px] items-center justify-between gap-4 px-[10px] py-[10px]">
+          <div className="flex min-w-0 items-center gap-5">
+            <button
+              aria-label="Toggle menu"
+              className="flex h-10 w-7 shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              <span className="h-0.5 w-7 bg-ink" />
+              <span className="h-0.5 w-7 bg-ink" />
+              <span className="h-0.5 w-7 bg-ink" />
+            </button>
+            <Link href="/" className="shrink-0">
             <Image
               src="/images/anchor-garage-door-logo.png"
               alt="Anchor Garage Door and Gate Services, Inc"
               width={161}
               height={46}
-              className="h-auto"
+              className="h-auto max-md:w-[135px] max-lg:w-[145px] lg:w-[161px]"
               priority
             />
-          </Link>
+            </Link>
+          </div>
 
           <div className="flex items-center gap-3">
             <nav className="hidden items-center gap-7 lg:flex">
               <NavDropdown
                 label="Garage Services"
                 items={garageServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
+                pathname={pathname}
               />
               <NavDropdown
                 label="Gate Services"
                 items={gateServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
+                pathname={pathname}
               />
-              <Link href="/about-us" className="hover:text-accent">
+              <Link href="/about-us" className={isCurrentPath(pathname, "/about-us") ? "text-accent" : "hover:text-accent"}>
                 About Us
               </Link>
-              <Link href="/projects" className="hover:text-accent">
+              <Link href="/projects" className={isCurrentPath(pathname, "/projects") ? "text-accent" : "hover:text-accent"}>
                 Projects
               </Link>
-              <Link href="/blogs" className="hover:text-accent">
+              <Link href="/blogs" className={isCurrentPath(pathname, "/blogs") ? "text-accent" : "hover:text-accent"}>
                 Blogs
               </Link>
             </nav>
             <Link
               href="/freequote"
-              className="hidden items-center justify-center gap-[10px] rounded-lg border border-white bg-accent px-5 py-[15px] text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-white hover:text-accent sm:inline-flex lg:px-[39px] lg:py-4 lg:text-base"
+              className="inline-flex items-center justify-center gap-[10px] rounded-lg border border-white bg-accent px-3 py-3 text-center text-sm font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-white hover:text-accent lg:px-[39px] lg:py-4 lg:text-base"
             >
               Get a Quote
             </Link>
-            <button
-              aria-label="Toggle menu"
-              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              <span className="h-0.5 w-6 bg-ink" />
-              <span className="h-0.5 w-6 bg-ink" />
-              <span className="h-0.5 w-6 bg-ink" />
-            </button>
           </div>
         </div>
 
         {mobileOpen && (
           <div className="border-t border-black/10 bg-white lg:hidden">
-            <div className="mx-auto max-w-[1320px] px-5 sm:px-8 flex flex-col gap-1 py-4">
+            <div className="mx-auto flex max-w-[1320px] flex-col gap-1 px-5 py-4">
               <MobileGroup
                 label="Garage Services"
                 items={garageServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
+                pathname={pathname}
                 open={openGroup === "garage"}
                 onToggle={() => setOpenGroup(openGroup === "garage" ? null : "garage")}
               />
               <MobileGroup
                 label="Gate Services"
                 items={gateServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
+                pathname={pathname}
                 open={openGroup === "gate"}
                 onToggle={() => setOpenGroup(openGroup === "gate" ? null : "gate")}
               />
@@ -126,18 +134,42 @@ function ClockIcon() {
   );
 }
 
-function NavDropdown({ label, items }: { label: string; items: { label: string; href: string }[] }) {
+function isCurrentPath(pathname: string, href: string) {
+  const normalizedPath = pathname.replace(/\/$/, "") || "/";
+  const normalizedHref = href.replace(/\/$/, "") || "/";
+  return normalizedPath === normalizedHref;
+}
+
+function NavDropdown({
+  label,
+  items,
+  pathname,
+}: {
+  label: string;
+  items: { label: string; href: string }[];
+  pathname: string;
+}) {
+  const hasActiveItem = items.some((item) => isCurrentPath(pathname, item.href));
+
   return (
-    <div className="group relative">
-      <button className="flex items-center gap-1 hover:text-accent">
+    <div className={`group relative ${hasActiveItem ? "text-accent" : ""}`}>
+      <button className="flex items-center gap-2 transition-colors duration-200 group-hover:text-accent">
         {label}
-        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
-          <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" />
+        <svg width="16" height="10" viewBox="0 0 12 7" fill="none" className="mt-0.5 rotate-180 transition-transform duration-[400ms] ease group-hover:rotate-0">
+          <path d="M6.02829 0.555879C5.90933 0.555879 5.79025 0.601347 5.69943 0.692167L1.04794 5.34366C0.866182 5.52541 0.866182 5.81974 1.04794 6.00138C1.2297 6.18302 1.52402 6.18313 1.70566 6.00138L6.02829 1.67875L10.3509 6.00138C10.5327 6.18313 10.827 6.18313 11.0086 6.00138C11.1903 5.81962 11.1904 5.5253 11.0086 5.34366L6.35715 0.692167C6.26633 0.601347 6.14725 0.555879 6.02829 0.555879Z" fill="currentColor" />
         </svg>
       </button>
-      <div className="invisible absolute left-0 top-full z-10 min-w-[260px] rounded-lg border border-black/5 bg-white py-2 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
+      <div className="invisible absolute left-0 top-full z-10 w-[250px] overflow-hidden bg-white opacity-0 shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-[opacity,visibility] duration-150 group-hover:visible group-hover:opacity-100">
         {items.map((item) => (
-          <Link key={item.href} href={item.href} className="block px-5 py-2 text-sm text-ink hover:bg-light hover:text-accent">
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`block px-6 py-[13px] text-[15px] leading-5 transition-colors duration-150 ${
+              isCurrentPath(pathname, item.href)
+                ? "bg-accent text-white"
+                : "text-ink hover:bg-accent hover:text-white"
+            }`}
+          >
             {item.label}
           </Link>
         ))}
@@ -149,11 +181,13 @@ function NavDropdown({ label, items }: { label: string; items: { label: string; 
 function MobileGroup({
   label,
   items,
+  pathname,
   open,
   onToggle,
 }: {
   label: string;
   items: { label: string; href: string }[];
+  pathname: string;
   open: boolean;
   onToggle: () => void;
 }) {
@@ -166,7 +200,11 @@ function MobileGroup({
       {open && (
         <div className="flex flex-col gap-1 pb-2 pl-3">
           {items.map((item) => (
-            <Link key={item.href} href={item.href} className="py-1 text-sm text-ink">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`py-1 text-sm ${isCurrentPath(pathname, item.href) ? "font-semibold text-accent" : "text-ink"}`}
+            >
               {item.label}
             </Link>
           ))}
