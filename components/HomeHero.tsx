@@ -102,14 +102,14 @@ export default function HomeHero() {
               />
             </div>
 
-            <div className="absolute left-0 right-0 bottom-0 flex h-[64%] flex-col items-center justify-center gap-5 overflow-hidden bg-accent px-6 py-10 text-center text-white sm:px-12 sm:py-12 md:left-auto md:right-0 md:top-0 md:h-auto md:w-[34.95%] md:px-[10px] md:py-[15px]">
-              <p className="flex items-center gap-2 text-base font-normal text-white">
+            <div className="absolute left-0 right-0 bottom-0 flex h-[64%] flex-col items-center justify-center gap-5 overflow-hidden bg-accent px-6 py-10 text-center text-white sm:px-12 sm:py-12 md:left-auto md:right-0 md:top-0 md:h-auto md:w-[34.95%] md:px-5 md:py-5">
+              <p className="flex items-center gap-2 text-base font-normal leading-[1.2] text-white">
                 <HouseIcon className="h-5 w-5 shrink-0" />
                 Welcome to Anchor Garage Door and Gate Services
               </p>
               <h1>{slide.title}</h1>
               <p className="max-w-xl text-white">{slide.description}</p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-5">
                 <a
                   href="tel:8332004087"
                   className="group inline-flex items-center justify-center gap-[10px] rounded-lg border border-dark bg-dark px-[15px] py-[13px] text-center text-lg font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-white hover:bg-white hover:text-accent"

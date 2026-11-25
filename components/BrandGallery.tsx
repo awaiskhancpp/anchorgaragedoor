@@ -5,7 +5,7 @@ export default function BrandGallery({ title, logos }: { title: string; logos: s
   return (
     <section className="mb-[30px] bg-white px-[10px] pb-[30px] pt-[50px] md:mb-[60px] md:pb-[50px] md:pt-[100px]">
       <div className="mx-auto w-full max-w-[1320px]">
-        <p className="flex items-center justify-center gap-2 font-heading text-base font-semibold capitalize leading-normal text-eyebrow md:text-xl">
+        <p className="flex items-center justify-center gap-2 font-heading text-base font-semibold capitalize leading-normal text-eyebrow md:text-xl md:leading-[25.5px]">
           <EyebrowIcon className="h-9 w-9 flex-none" />
           Our Trusted Partners
         </p>
@@ -16,7 +16,7 @@ export default function BrandGallery({ title, logos }: { title: string; logos: s
           {logos.map((logo) => (
             <figure
               key={logo}
-              className="flex h-[84px] w-full min-w-0 items-center justify-center border border-[#f2f2f2] md:h-[120px]"
+              className="m-0 flex h-[84px] w-full min-w-0 items-center justify-center border-[0.8px] border-[#f2f2f2] md:h-[120px]"
             >
               <Image
                 src={`/images/${logo}`}

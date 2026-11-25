@@ -49,23 +49,21 @@ function CustomerAvatars() {
 
 export default function TestimonialStatsSection() {
   return (
-    <section className="overflow-hidden bg-light bg-[url('/images/testimonial-left-circle.png')] bg-left-top bg-no-repeat px-5 pb-8 pt-[48px] md:pb-10 md:pt-[70px] lg:px-0 lg:pb-[50px] lg:pt-[100px]">
+    <section className="overflow-hidden bg-light bg-[url('/images/testimonial-left-circle.png')] bg-left-top bg-no-repeat px-5 pb-8 pt-[48px] md:pb-10 md:pt-[70px] lg:px-0 lg:pb-[50px] lg:pt-[50px]">
       <div className="mx-auto grid min-h-0 w-full max-w-[1320px] grid-cols-1 gap-12 md:min-h-[601px] lg:grid-cols-2 lg:gap-5">
         <div className="min-w-0 pr-0 lg:pr-[10px]">
-          <h2 className="flex flex-col items-start text-[36px] font-bold leading-[1.1] text-ink md:text-[clamp(40px,7vw,55px)] lg:text-[55px]">
+          <h2 className="relative flex flex-col items-start text-[36px] font-bold leading-[1.2] text-ink md:text-[clamp(40px,7vw,55px)] lg:leading-[82px] lg:text-[55px]">
             <span>Simply Put - A Job</span>
-            <span className="inline-flex items-end whitespace-normal md:whitespace-nowrap">
-              <span>Well Done</span>
-              <Image
-                src="/images/jessica.svg"
-                alt="Jessica Tremblay"
-                width={126}
-                height={74}
-                className="ml-2 mb-[-4px] h-[54px] w-[92px] object-contain md:h-[74px] md:w-[126px]"
-              />
-            </span>
+            <span>Well Done</span>
+            <Image
+              src="/images/jessica.svg"
+              alt="Jessica Tremblay"
+              width={126}
+              height={74}
+              className="absolute bottom-[-8px] left-[262px] hidden h-[80px] w-[126px] object-contain lg:block"
+            />
           </h2>
-          <p className="my-5 max-w-[502px] text-[17px] font-semibold leading-[1.275] text-eyebrow md:text-xl">
+          <p className="mb-5 max-w-[502px] text-[17px] font-semibold leading-[1.275] text-eyebrow md:text-xl">
             Elevate your marketing skills with the proven growth hacking techniques.
           </p>
           <p className="mb-5 max-w-[491px] text-[17px] leading-[1.6] text-ink md:text-[18px] md:leading-[1.78]">
@@ -79,7 +77,7 @@ export default function TestimonialStatsSection() {
           <p className="text-[17px] leading-normal text-ink">CUSTOMER</p>
         </div>
 
-        <div className="grid min-h-0 min-w-0 grid-rows-[auto_auto] gap-5 p-[10px] md:min-h-[601px] md:grid-rows-[auto_235px]">
+        <div className="grid min-h-0 min-w-0 grid-rows-[auto_auto] gap-5 p-[10px] md:min-h-[601px] md:grid-rows-[auto_175px]">
           <div className="relative flex min-h-[220px] min-w-0 md:min-h-0">
             <div className="relative aspect-[380/340] min-w-0 flex-none basis-[58.75%] overflow-hidden rounded-l-3xl">
               <Image
@@ -100,11 +98,11 @@ export default function TestimonialStatsSection() {
           </div>
 
           <div className="flex min-w-0 flex-col gap-[14px] md:flex-row md:gap-0">
-            <div className="flex min-h-[190px] min-w-0 flex-[1_1_50%] flex-col justify-between rounded-3xl bg-[#c5e6fa] px-4 pt-[14px] pb-[18px] text-ink md:min-h-0">
+            <div className="flex min-h-0 min-w-0 flex-[1_1_50%] flex-col justify-between rounded-3xl bg-[#cdebff] p-5 text-ink">
               <div className="flex items-center justify-between gap-2 text-[17px] font-semibold leading-normal">
                 <span>Professional Experts</span>
-                <span className="grid h-[38px] w-[38px] flex-none place-items-center rounded-full bg-[#272727] text-white">
-                  <ArrowIcon className="h-[22px] w-[22px]" />
+                <span className="grid h-12 w-12 flex-none place-items-center rounded-full bg-[#272727] text-white">
+                  <ArrowIcon className="h-6 w-6" />
                 </span>
               </div>
               <div className="flex items-center justify-start gap-4">
@@ -112,11 +110,11 @@ export default function TestimonialStatsSection() {
                 <span className="text-[17px]">Collection</span>
               </div>
             </div>
-            <div className="ml-0 flex min-h-[190px] min-w-0 flex-[1_1_50%] flex-col justify-between rounded-3xl bg-accent px-4 pt-[14px] pb-[18px] text-white md:ml-[14px] md:min-h-0">
+            <div className="ml-0 flex min-h-0 min-w-0 flex-[1_1_50%] flex-col justify-between rounded-3xl bg-accent p-5 text-white md:ml-[14px]">
               <div className="flex items-center justify-between gap-2 text-[17px] font-semibold leading-normal">
                 <span>Happy customer</span>
-                <span className="grid h-[38px] w-[38px] flex-none place-items-center rounded-full bg-white text-[#272727]">
-                  <ArrowIcon className="h-[22px] w-[22px]" />
+                <span className="grid h-12 w-12 flex-none place-items-center rounded-full bg-white text-[#272727]">
+                  <ArrowIcon className="h-6 w-6" />
                 </span>
               </div>
               <div className="flex items-center justify-between gap-2">
