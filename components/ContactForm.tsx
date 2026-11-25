@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { services } from "@/lib/services";
 import { ACCENT_INVERT_HOVER } from "@/components/buttonStyles";
+import CloudflareBadge from "@/components/CloudflareBadge";
 
 const FIELD_BASE =
   "w-full rounded-none border-0 border-b-[0.8px] border-dark bg-transparent px-1 py-[6px] text-base text-ink placeholder:text-ink/55 focus:border-b-2 focus:outline-none";
@@ -65,20 +66,7 @@ export default function ContactForm({
         className={`${field} sm:col-span-2 ${textareaClassName}`}
       />
       <input type="text" name="hp" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {showCaptcha && (
-        <div className="h-[65px]" aria-hidden="true">
-          <div className="flex h-[65px] w-[300px] items-center gap-[8px] border border-[#d9d9d9] bg-[#f7f7f7] px-[10px] text-[13px] leading-[1.1] text-[#202124]">
-            <span className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#2e9b57] text-xl font-bold text-white">
-              ✓
-            </span>
-            <span className="whitespace-nowrap">Success!</span>
-            <div className="ml-auto text-right text-[10px] font-bold tracking-[0.04em]">
-              <span className="text-[#f58220]">CLOUDFLARE</span>
-              <small className="block text-[8px] font-normal tracking-normal text-[#555]">Privacy - Help</small>
-            </div>
-          </div>
-        </div>
-      )}
+      {showCaptcha && <CloudflareBadge variant="light" />}
       <button type="submit" className={submitClassName}>
         {submitLabel}
       </button>

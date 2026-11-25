@@ -3,6 +3,10 @@
 import { FormEvent, useState } from "react";
 import { services } from "@/lib/services";
 import { ACCENT_INVERT_HOVER } from "@/components/buttonStyles";
+import CloudflareBadge from "@/components/CloudflareBadge";
+
+const FIELD_BASE =
+  "h-[60px] w-full rounded-[8px] border-0 bg-[#142834] px-[10px] text-[18px] focus:outline-2 focus:outline-accent focus:outline-offset-1 max-[1600px]:h-12 max-[1600px]:text-[16px]";
 
 export default function QuickScheduleForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -30,28 +34,23 @@ export default function QuickScheduleForm() {
         required
         name="fullName"
         placeholder="Full Name"
-        className="h-[60px] w-full rounded-[8px] border-0 bg-[#142834] px-[10px] text-[18px] text-white placeholder:text-[#667085] focus:outline-2 focus:outline-accent focus:outline-offset-1 max-[1600px]:h-12 max-[1600px]:text-[16px]"
+        className={`${FIELD_BASE} text-white placeholder:text-[#667085]`}
       />
       <input
         required
         type="email"
         name="email"
         placeholder="Email Address"
-        className="h-[60px] w-full rounded-[8px] border-0 bg-[#142834] px-[10px] text-[18px] text-white placeholder:text-[#667085] focus:outline-2 focus:outline-accent focus:outline-offset-1 max-[1600px]:h-12 max-[1600px]:text-[16px]"
+        className={`${FIELD_BASE} text-white placeholder:text-[#667085]`}
       />
       <input
         required
         type="tel"
         name="phone"
         placeholder="Phone Number"
-        className="h-[60px] w-full rounded-[8px] border-0 bg-[#142834] px-[10px] text-[18px] text-white placeholder:text-[#667085] focus:outline-2 focus:outline-accent focus:outline-offset-1 max-[1600px]:h-12 max-[1600px]:text-[16px]"
+        className={`${FIELD_BASE} text-white placeholder:text-[#667085]`}
       />
-      <select
-        required
-        name="service"
-        defaultValue=""
-        className="h-[60px] w-full rounded-[8px] border-0 bg-[#142834] px-[10px] text-[18px] text-[#667085] focus:outline-2 focus:outline-accent focus:outline-offset-1 max-[1600px]:h-12 max-[1600px]:text-[16px]"
-      >
+      <select required name="service" defaultValue="" className={`${FIELD_BASE} text-[#667085]`}>
         <option value="" disabled>
           Type of Service
         </option>
@@ -63,20 +62,7 @@ export default function QuickScheduleForm() {
       </select>
       <input type="text" name="hp" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
-      <div
-        className="col-start-1 row-start-2 flex h-20 w-[375px] items-center justify-between border border-[#d7d7d7] bg-[#303030] px-[11px] text-white max-[1600px]:h-[72px] max-lg:col-auto max-lg:row-auto max-lg:w-full max-md:h-[70px]"
-        role="status"
-        aria-label="Cloudflare verification successful"
-      >
-        <div className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#27ae60] text-[25px] leading-none">✓</span>
-          <span className="text-[16px]">Success!</span>
-        </div>
-        <div className="text-right leading-none">
-          <div className="text-[11px] font-bold tracking-[0.18em]">CLOUDFLARE</div>
-          <div className="mt-1 text-[9px] underline">Privacy · Help</div>
-        </div>
-      </div>
+      <CloudflareBadge variant="dark" className="col-start-1 row-start-2 max-lg:col-auto max-lg:row-auto" />
 
       <button
         type="submit"

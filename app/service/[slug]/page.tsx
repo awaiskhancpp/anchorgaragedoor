@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="flex items-center px-5 py-10 lg:px-10 lg:py-5">
             <div className="w-full lg:w-4/5">
               <h3 className="mb-5 flex items-center gap-4">
-                <span className="relative z-0 grid h-8 w-8 shrink-0 place-items-center before:absolute before:inset-[-10px] before:-z-10 before:rounded-full before:bg-[#f1f5eb] lg:h-6 lg:w-6">
+                <span className="relative z-0 grid h-8 w-8 shrink-0 place-items-center before:absolute before:inset-[-10px] before:-z-10 before:rounded-full before:bg-badge lg:h-6 lg:w-6">
                   <Image src={service.heroIcon} alt="" width={30} height={30} className="" />
                 </span>
                 {service.title}

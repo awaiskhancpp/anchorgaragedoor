@@ -576,6 +576,46 @@ stat-card image and photo panel explicit desktop heights (`lg:h-[333px]` /
 `lg:h-[314px]`) with `content-start` on the stats column so the two don't
 stretch to fill extra vertical space.
 
+## Revision 22 — Site-wide reuse audit: more shared components, a missing
+hover fix, and a color token
+
+Went through every button/badge "category" on the site (Get a Quote,
+Schedule Now, Read More, the quote-request submit buttons, the Cloudflare
+placeholder widget) to check what was actually reused vs. copy-pasted:
+
+- `components/GetAQuoteButton.tsx` (new) replaces the header's "Get a Quote"
+  link, which was duplicated by hand between the desktop nav and the mobile
+  menu with only padding/margin differing.
+- `ContactForm.tsx`'s submit button (used on `/freequote` and reused by
+  `GetInTouchSection`'s "Request A Quote") had **no hover state at all**,
+  unlike every other accent CTA on the site. Checked the live site and
+  confirmed it inverts to white/accent-blue on hover, so it now uses the
+  same `ACCENT_INVERT_HOVER` constant as the schedule card.
+- `components/CloudflareBadge.tsx` (new) consolidates the "Success! /
+  CLOUDFLARE" placeholder widget that was hand-duplicated with different
+  colors in `QuickScheduleForm.tsx` (dark, for the schedule card) and
+  `ContactForm.tsx` (light, for `/freequote` and Get In Touch). Takes a
+  `variant` (`"dark"` | `"light"`) the same way `DialNowButton` does.
+- `QuickScheduleForm.tsx`'s four form fields repeated the same long
+  className by hand; pulled the shared part into a `FIELD_BASE` constant
+  (mirrors the pattern `ContactForm.tsx` already used for its own fields).
+- `Footer.tsx` had the same "muted list text" / "section label" / "link
+  hover" className strings copy-pasted 3-4 times each; extracted
+  `FOOTER_MUTED_TEXT`, `FOOTER_LIST_BASE`, `FOOTER_LABEL`, and
+  `FOOTER_LINK_HOVER` constants.
+- Added a `--color-badge: #f1f5eb` token to `globals.css` (alongside the
+  existing accent/ink/dark/light/eyebrow tokens) for the service icon-badge
+  backdrop, which was hardcoded as `bg-[#f1f5eb]` in both `ServiceGrid.tsx`
+  and the service detail page (`app/service/[slug]/page.tsx`). Also swapped
+  `ServiceGrid.tsx`'s card hover from `hover:bg-[#f1f7fb]` to `hover:bg-light`
+  — same value as the existing `--color-light` token, just not referencing
+  it before.
+
+All of the above are class-string/markup consolidations only — every
+variant reproduces its exact pre-existing classes, so no spacing, color, or
+sizing changed. Verified in the browser (default + hover states) against
+both the live site and the pre-refactor markup.
+
 ## Running it
 
 ```bash

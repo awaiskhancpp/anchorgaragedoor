@@ -21,6 +21,11 @@ const footerServices = footerServiceOrder
   .map((slug) => services.find((service) => service.slug === slug))
   .filter((service): service is (typeof services)[number] => Boolean(service));
 
+const FOOTER_MUTED_TEXT = "text-base font-normal leading-normal text-[#7b7b7b]";
+const FOOTER_LIST_BASE = `m-0 list-none p-0 ${FOOTER_MUTED_TEXT}`;
+const FOOTER_LABEL = "mb-1 text-base font-medium uppercase leading-normal text-[#606a83]";
+const FOOTER_LINK_HOVER = "text-inherit no-underline transition-colors duration-300 hover:text-white focus-visible:text-white";
+
 function ServiceList({
   items,
   className = "",
@@ -29,13 +34,10 @@ function ServiceList({
   className?: string;
 }) {
   return (
-    <ul className={`m-0 list-none p-0 text-base font-normal leading-normal text-[#7b7b7b] ${className}`}>
+    <ul className={`${FOOTER_LIST_BASE} ${className}`}>
       {items.map((service) => (
         <li key={service.slug} className="py-1">
-          <Link
-            href={`/service/${service.slug}`}
-            className="text-inherit no-underline transition-colors duration-300 hover:text-white focus-visible:text-white"
-          >
+          <Link href={`/service/${service.slug}`} className={FOOTER_LINK_HOVER}>
             {service.title}
           </Link>
         </li>
@@ -60,29 +62,23 @@ export default function Footer() {
             />
 
             <div className="mt-[30px]">
-              <h5 className="mb-1 text-base font-medium uppercase leading-normal text-[#606a83]">Normal hours:</h5>
-              <ul className="m-0 list-none p-0 text-base font-normal leading-normal text-[#7b7b7b]">
+              <h5 className={FOOTER_LABEL}>Normal hours:</h5>
+              <ul className={FOOTER_LIST_BASE}>
                 <li className="py-1">Monday - Sunday 6am to 9pm</li>
                 <li className="py-1">24/7 Emergency Service</li>
               </ul>
             </div>
 
             <div className="mt-5">
-              <h5 className="mb-1 text-base font-medium uppercase leading-normal text-[#606a83]">Contact Info:</h5>
-              <ul className="m-0 list-none p-0 text-base font-normal leading-normal text-[#7b7b7b]">
+              <h5 className={FOOTER_LABEL}>Contact Info:</h5>
+              <ul className={FOOTER_LIST_BASE}>
                 <li className="py-1">
-                  <a
-                    href="tel:833-200-4087"
-                    className="text-inherit no-underline transition-colors duration-300 hover:text-white focus-visible:text-white"
-                  >
+                  <a href="tel:833-200-4087" className={FOOTER_LINK_HOVER}>
                     Phone: <strong className="font-bold">(833) 200-4087</strong>
                   </a>
                 </li>
                 <li className="py-1">
-                  <a
-                    href="mailto:info@anchorgaragedoor.com"
-                    className="text-inherit no-underline transition-colors duration-300 hover:text-white focus-visible:text-white"
-                  >
+                  <a href="mailto:info@anchorgaragedoor.com" className={FOOTER_LINK_HOVER}>
                     Email: <strong className="font-bold">info@anchorgaragedoor.com</strong>
                   </a>
                 </li>
@@ -102,7 +98,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#ffffff3d] bg-dark">
-        <div className="w-full px-5 pb-[76px] pt-[10px] text-center text-base font-normal leading-normal text-[#7b7b7b] md:px-[10px] md:py-5">
+        <div className={`w-full px-5 pb-[76px] pt-[10px] text-center md:px-[10px] md:py-5 ${FOOTER_MUTED_TEXT}`}>
           <p className="m-0">
             Anchor Garage Door and Gate Services Inc © Copyright <CopyrightYear />.
           </p>
