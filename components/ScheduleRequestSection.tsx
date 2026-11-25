@@ -1,5 +1,6 @@
 import QuickScheduleForm from "@/components/QuickScheduleForm";
-import { EyebrowIcon, PhoneIconFilled, ScheduleChatIcon, ScrollDownIcon } from "@/components/icons";
+import DialNowButton from "@/components/DialNowButton";
+import { EyebrowIcon, ScheduleChatIcon, ScrollDownIcon } from "@/components/icons";
 
 export default function ScheduleRequestSection() {
   return (
@@ -31,13 +32,11 @@ export default function ScheduleRequestSection() {
             </p>
           </div>
 
-          <a
-            href="tel:8332004087"
-            className="mt-3 inline-flex h-[69px] w-[353px] shrink-0 items-center justify-center gap-2 rounded-[8px] bg-accent px-6 text-[22px] font-semibold leading-none text-white transition hover:bg-[#0260fa] max-[1600px]:mt-[9px] max-[1600px]:h-[56px] max-[1600px]:w-auto max-[1600px]:px-[15px] max-[1600px]:text-[18px] max-md:mt-5 max-md:h-[56px] max-md:px-4 max-md:text-[16px]"
-          >
-            <PhoneIconFilled className="h-7 w-7" />
-            Dial Now (833) 200-4087
-          </a>
+          <DialNowButton
+            variant="schedule"
+            animate={false}
+            className="mt-3 max-[1600px]:mt-[9px] max-md:mt-5"
+          />
         </div>
 
         <QuickScheduleForm />

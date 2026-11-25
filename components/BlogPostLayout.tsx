@@ -3,6 +3,7 @@ import Link from "next/link";
 import { blogPosts, type BlogPost } from "@/lib/blogPosts";
 import GetInTouchSection from "@/components/GetInTouchSection";
 import DialNowButton from "@/components/DialNowButton";
+import GetStartedButton from "@/components/GetStartedButton";
 import { EyebrowIcon, UserCircleIcon, WordPressCalendarIcon, WordPressSearchIcon } from "@/components/icons";
 
 const CATEGORIES = [
@@ -133,12 +134,7 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
               <h3 className="mb-5 text-[32px]! leading-[1.2]">Want Your Garage Door Fix? We&apos;re Ready To Help You!</h3>
               <div className="flex flex-col gap-3">
                 <DialNowButton className="w-full" />
-                <a
-                  href="/freequote"
-                  className="inline-flex items-center justify-center gap-[10px] rounded-lg border border-accent bg-transparent px-[90px] py-[19px] text-center text-lg font-semibold capitalize leading-none text-accent transition-[background-color,border-color,color] duration-[250ms] ease hover:bg-accent hover:text-white"
-                >
-                  Get Started
-                </a>
+                <GetStartedButton variant="outline" />
               </div>
               <a href="mailto:info@anchorgaragedoor.com" className="mt-5 inline-block text-[17px] text-ink/60 hover:text-accent">
                 info@anchorgaragedoor.com

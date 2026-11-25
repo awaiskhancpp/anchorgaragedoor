@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { services } from "@/lib/services";
+import { ACCENT_INVERT_HOVER } from "@/components/buttonStyles";
 
 export default function QuickScheduleForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -79,7 +80,7 @@ export default function QuickScheduleForm() {
 
       <button
         type="submit"
-        className="col-start-3 row-start-2 h-[61px] w-[226px] rounded-[8px] border border-accent bg-accent px-5 text-[21px] leading-none text-white transition hover:border-[#0260fa] hover:bg-[#0260fa] max-[1600px]:h-12 max-[1600px]:w-auto max-[1600px]:text-[16px] max-lg:col-auto max-lg:row-auto max-lg:w-full max-lg:text-[18px]"
+        className={`col-start-3 row-start-2 h-[61px] w-[226px] rounded-[8px] px-5 text-[21px] leading-none max-[1600px]:h-12 max-[1600px]:w-auto max-[1600px]:text-[16px] max-lg:col-auto max-lg:row-auto max-lg:w-full max-lg:text-[18px] ${ACCENT_INVERT_HOVER}`}
       >
         Schedule Now
       </button>

@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { PointerEvent, useEffect, useRef, useState } from "react";
-import { HouseIcon, PhoneIconFilled } from "@/components/icons";
+import { HouseIcon } from "@/components/icons";
+import DialNowButton from "@/components/DialNowButton";
+import GetStartedButton from "@/components/GetStartedButton";
 
 const slides = [
   {
@@ -110,19 +112,8 @@ export default function HomeHero() {
               <h1>{slide.title}</h1>
               <p className="max-w-xl text-white">{slide.description}</p>
               <div className="flex flex-wrap justify-center gap-5">
-                <a
-                  href="tel:8332004087"
-                  className="group inline-flex items-center justify-center gap-[10px] rounded-lg border border-dark bg-dark px-[15px] py-[13px] text-center text-lg font-semibold capitalize leading-none text-white transition-[background-color,border-color,color] duration-[250ms] ease hover:border-white hover:bg-white hover:text-accent"
-                >
-                  <PhoneIconFilled className="h-8 w-8 [&>circle]:transition-[fill,fill-opacity] [&>circle]:duration-[250ms] group-hover:[&>circle]:fill-accent group-hover:[&>circle]:[fill-opacity:1] group-hover:[&>path]:fill-white" />
-                  Dial Now (833) 200-4087
-                </a>
-                <a
-                  href="/freequote"
-                  className="inline-flex items-center justify-center gap-[10px] rounded-lg border border-white bg-white px-[42px] py-5 text-center text-lg font-semibold capitalize leading-none text-accent transition-[background-color,border-color,color] duration-[250ms] ease hover:border-dark hover:bg-dark hover:text-white"
-                >
-                  Get Started
-                </a>
+                <DialNowButton variant="dark" />
+                <GetStartedButton variant="dark" />
               </div>
             </div>
           </article>

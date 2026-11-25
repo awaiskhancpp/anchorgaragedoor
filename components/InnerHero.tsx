@@ -1,5 +1,6 @@
 import Image from "next/image";
 import DialNowButton from "@/components/DialNowButton";
+import GetStartedButton from "@/components/GetStartedButton";
 
 export default function InnerHero({
   title,
@@ -21,12 +22,7 @@ export default function InnerHero({
         {description && <p className="mt-[5px] mb-[15px] w-full max-w-full text-[17px] leading-[1.5] text-white">{description}</p>}
         <div className="flex flex-wrap justify-center gap-4">
           {showDialButton && <DialNowButton />}
-          <a
-            href="/freequote"
-            className="inline-flex items-center justify-center gap-[10px] rounded-lg border border-white bg-white px-[42px] py-5 text-center text-lg font-semibold capitalize leading-none text-accent transition-[background-color,border-color,color] duration-[250ms] ease hover:border-accent hover:bg-accent hover:text-white"
-          >
-            Get Started
-          </a>
+          <GetStartedButton />
         </div>
       </div>
     </section>

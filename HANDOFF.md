@@ -543,6 +543,39 @@ service-card geometry, and removed the schedule card height override that was
 compressing it at common desktop widths. The schedule heading now uses the
 original orange eyebrow SVG.
 
+## Revision 21 — Reusable CTA buttons; schedule card hover fixes; testimonial spacing
+
+Extracted the repeated "Dial Now" and "Get Started" hero CTAs into two shared
+components instead of copy-pasted `<a>` markup in `HomeHero`, `InnerHero`, and
+`BlogPostLayout`:
+
+- `components/DialNowButton.tsx` takes a `variant` (`"dark"` | `"light"` |
+  `"schedule"`) for the three distinct color/size treatments already in use,
+  plus an `animate` flag (defaults to `true`) that applies the live site's
+  hero fade-in. The homepage hero and inner-page heroes animate; the Dial Now
+  button inside the "Schedule A Service Request" card does not, matching the
+  live site, via `animate={false}`.
+- `components/GetStartedButton.tsx` takes a `variant` (`"dark"` | `"light"` |
+  `"outline"`) covering the homepage hero, inner-page hero, and blog sidebar
+  treatments.
+- `components/buttonStyles.ts` exports `ACCENT_INVERT_HOVER`, the shared
+  "white bg / accent-blue text and border on hover" treatment used by both
+  the schedule-card Dial Now button and the schedule form's own "Schedule
+  Now" submit button (`QuickScheduleForm.tsx`) — the submit button previously
+  darkened to `#0260fa` on hover instead of matching the rest of the site.
+
+While matching the schedule-card Dial Now button to the live site, found and
+fixed an icon-size bug: its phone icon was `h-8 w-8` (32px) instead of the
+live site's 28px, which — combined with the correct 20px button gap — pushed
+the hero's Dial Now/Get Started row 2px past its column width and wrapped it
+to a second line. Icon is now `h-7 w-7`, matching the live site exactly.
+
+Also adjusted `TestimonialStatsSection.tsx` spacing: increased the section's
+top padding, switched the subheading from `mb-5` to `my-5`, and gave the
+stat-card image and photo panel explicit desktop heights (`lg:h-[333px]` /
+`lg:h-[314px]`) with `content-start` on the stats column so the two don't
+stretch to fill extra vertical space.
+
 ## Running it
 
 ```bash

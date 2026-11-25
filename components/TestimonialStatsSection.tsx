@@ -49,7 +49,7 @@ function CustomerAvatars() {
 
 export default function TestimonialStatsSection() {
   return (
-    <section className="overflow-hidden bg-light bg-[url('/images/testimonial-left-circle.png')] bg-left-top bg-no-repeat px-5 pb-8 pt-[48px] md:pb-10 md:pt-[70px] lg:px-0 lg:pb-[50px] lg:pt-[50px]">
+    <section className="overflow-hidden bg-light bg-[url('/images/testimonial-left-circle.png')] bg-left-top bg-no-repeat px-5 pb-8 pt-[48px] md:pb-10 md:pt-[70px] lg:px-0 lg:pb-[50px] lg:pt-[130px]">
       <div className="mx-auto grid min-h-0 w-full max-w-[1320px] grid-cols-1 gap-12 md:min-h-[601px] lg:grid-cols-2 lg:gap-5">
         <div className="min-w-0 pr-0 lg:pr-[10px]">
           <h2 className="relative flex flex-col items-start text-[36px] font-bold leading-[1.2] text-ink md:text-[clamp(40px,7vw,55px)] lg:leading-[82px] lg:text-[55px]">
@@ -63,7 +63,7 @@ export default function TestimonialStatsSection() {
               className="absolute bottom-[-8px] left-[262px] hidden h-[80px] w-[126px] object-contain lg:block"
             />
           </h2>
-          <p className="mb-5 max-w-[502px] text-[17px] font-semibold leading-[1.275] text-eyebrow md:text-xl">
+          <p className="my-5 max-w-[502px] text-[17px] font-semibold leading-[1.275] text-eyebrow md:text-xl">
             Elevate your marketing skills with the proven growth hacking techniques.
           </p>
           <p className="mb-5 max-w-[491px] text-[17px] leading-[1.6] text-ink md:text-[18px] md:leading-[1.78]">
@@ -77,9 +77,9 @@ export default function TestimonialStatsSection() {
           <p className="text-[17px] leading-normal text-ink">CUSTOMER</p>
         </div>
 
-        <div className="grid min-h-0 min-w-0 grid-rows-[auto_auto] gap-5 p-[10px] md:min-h-[601px] md:grid-rows-[auto_175px]">
+        <div className="grid min-h-0 min-w-0 content-start grid-rows-[auto_auto] gap-5 p-[10px] md:min-h-[601px] md:grid-rows-[auto_175px] md:content-start">
           <div className="relative flex min-h-[220px] min-w-0 md:min-h-0">
-            <div className="relative aspect-[380/340] min-w-0 flex-none basis-[58.75%] overflow-hidden rounded-l-3xl">
+            <div className="relative aspect-[380/340] min-w-0 flex-none basis-[58.75%] overflow-hidden rounded-l-3xl lg:h-[333px] lg:aspect-auto">
               <Image
                 src="/images/Rectangle-23805.png"
                 alt="Garage door technician at work"
@@ -88,7 +88,7 @@ export default function TestimonialStatsSection() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute right-0 top-2 z-[1] flex h-[calc(100%-16px)] w-[45%] min-w-0 flex-col items-center justify-center rounded-3xl bg-white text-ink">
+            <div className="absolute right-0 top-2 z-[1] flex h-[calc(100%-16px)] w-[45%] min-w-0 flex-col items-center justify-center rounded-3xl bg-white text-ink lg:top-[11px] lg:h-[314px]">
               <div className="absolute -top-[22px] right-5 grid h-[60px] w-[60px] place-items-center rounded-full bg-accent text-white shadow-[0_18px_28px_rgb(15_14_14_/_20%)]">
                 <TrendIcon className="h-[34px] w-[34px]" />
               </div>
