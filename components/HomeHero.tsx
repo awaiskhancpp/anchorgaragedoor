@@ -39,7 +39,7 @@ export default function HomeHero() {
 
     const id = window.setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
-    }, 6000);
+    }, 5000);
 
     return () => window.clearInterval(id);
   }, [isDragging]);
@@ -79,7 +79,7 @@ export default function HomeHero() {
 
   return (
     <section
-      className="relative h-[900px] touch-pan-y cursor-grab overflow-hidden bg-accent select-none sm:h-[820px] md:h-[700px]"
+      className="relative h-auto touch-pan-y cursor-grab overflow-hidden bg-accent select-none md:h-[700px]"
       aria-label="Featured services"
       style={{ cursor: isDragging ? "grabbing" : "grab" }}
       onPointerDown={handlePointerDown}
@@ -88,12 +88,12 @@ export default function HomeHero() {
       onPointerCancel={finishDrag}
     >
       <div
-        className={`flex h-full w-[200%] ${isDragging ? "transition-none" : "transition-transform duration-500 ease-out"}`}
+        className={`flex h-auto w-[200%] md:h-full ${isDragging ? "transition-none" : "transition-transform duration-[1500ms] ease-out"}`}
         style={{ transform: `translateX(calc(-${active * 50}% + ${dragOffset}px))` }}
       >
         {slides.map((slide, index) => (
-          <article key={slide.image} className="relative h-full w-1/2 shrink-0" aria-hidden={index !== active}>
-            <div className="absolute left-0 right-0 top-0 h-[36%] md:right-auto md:bottom-0 md:h-auto md:w-[65.05%]">
+          <article key={slide.image} className="relative h-auto w-1/2 shrink-0 md:h-full" aria-hidden={index !== active}>
+            <div className="relative h-[280px] w-full md:absolute md:left-0 md:right-auto md:top-0 md:bottom-0 md:h-auto md:w-[65.05%]">
               <Image
                 src={slide.image}
                 alt=""
@@ -104,16 +104,18 @@ export default function HomeHero() {
               />
             </div>
 
-            <div className="absolute left-0 right-0 bottom-0 flex h-[64%] flex-col items-center justify-center gap-5 overflow-hidden bg-accent px-6 py-10 text-center text-white sm:px-12 sm:py-12 md:left-auto md:right-0 md:top-0 md:h-auto md:w-[34.95%] md:px-5 md:py-5">
-              <p className="flex items-center gap-2 text-base font-normal leading-[1.2] text-white">
-                <HouseIcon className="h-5 w-5 shrink-0" />
+            <div className="relative flex h-auto flex-col items-center justify-start gap-5 overflow-hidden bg-accent px-5 pb-[30px] pt-[25px] text-center text-white md:absolute md:inset-y-0 md:left-auto md:right-0 md:w-[34.95%] md:justify-center md:px-5 md:py-5">
+              <p className="flex min-h-10 items-center gap-2 text-base font-normal leading-[1.2] text-white">
+                <span className="grid h-10 w-10 shrink-0 place-items-center">
+                  <HouseIcon className="h-5 w-5" />
+                </span>
                 Welcome to Anchor Garage Door and Gate Services
               </p>
               <h1>{slide.title}</h1>
-              <p className="max-w-xl text-white">{slide.description}</p>
-              <div className="flex flex-wrap justify-center gap-5">
-                <DialNowButton variant="dark" />
-                <GetStartedButton variant="dark" />
+              <p className="max-w-xl py-0 text-[14px] leading-[21px] text-white max-md:pb-[15px] max-md:pt-[5px] md:text-[17px] md:leading-[1.5]">{slide.description}</p>
+              <div className="flex flex-col items-stretch justify-center gap-5 md:flex-row md:items-center">
+                <DialNowButton variant="dark" className="max-md:leading-4" />
+                <GetStartedButton variant="dark" className="max-md:py-[19px] max-md:leading-4" />
               </div>
             </div>
           </article>

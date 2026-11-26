@@ -15,29 +15,51 @@ export default function Header() {
   return (
     <>
       <div className="bg-accent text-white">
-        <div className="mx-auto flex max-w-[1340px] flex-wrap items-center justify-between gap-2 px-[10px] py-[15px] text-sm">
-          <a href="tel:8332004087" className="flex items-center text-[16px] gap-2">
-            <PhoneIcon />
-            Call us for a FREE Estimate. Dial Now <span className="font-bold text-[20px]">(833) 200-4087</span>
+        <div className="mx-auto flex max-w-[1340px] flex-wrap items-center justify-between gap-2 px-[10px] py-[15px] text-sm max-md:flex-col max-md:items-center max-md:gap-[10px] max-md:px-0 max-md:py-[10px]">
+          <a
+            href="tel:8332004087"
+            className="flex items-center gap-2 text-[16px] max-md:h-[42px] max-md:w-[230px] max-md:items-start max-md:justify-center max-md:gap-0 max-md:text-[12px] max-md:leading-[21px]"
+          >
+            <span className="max-md:mr-[4.5px] max-md:grid max-md:h-[18px] max-md:w-[18px] max-md:shrink-0 max-md:place-items-center max-md:[&>svg]:h-[18px] max-md:[&>svg]:w-[18px]"><PhoneIcon /></span>
+            <span className="max-md:w-[230px] max-md:pl-[5px] max-md:text-center">
+              Call us for a FREE Estimate. Dial Now <span className="font-bold text-[20px] max-md:block max-md:text-[20px]">(833) 200-4087</span>
+            </span>
           </a>
-          <span className="flex items-center gap-2 text-[17px]">
-            <ClockIcon />
+          <span className="flex items-center gap-2 text-[17px] max-md:gap-0 max-md:text-[14px] max-md:leading-[21px]">
+            <span className="max-md:mr-[4.5px] max-md:grid max-md:h-[18px] max-md:w-[18px] max-md:shrink-0 max-md:place-items-center max-md:[&>svg]:h-[18px] max-md:[&>svg]:w-[18px]"><ClockIcon /></span>
             24/7 Emergency Service
           </span>
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <header className="relative sticky top-0 z-50 bg-white shadow-sm">
         <div className="mx-auto flex max-w-[1340px] items-center justify-between gap-4 px-[10px] py-[10px]">
-          <div className="flex min-w-0 items-center gap-5">
+          <div className="flex min-w-0 items-center gap-5 max-md:gap-[10px]">
             <button
               aria-label="Toggle menu"
-              className="flex h-10 w-7 shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
+              aria-controls="mobile-navigation"
+              aria-expanded={mobileOpen}
+              className="relative flex h-10 w-[37.5px] shrink-0 items-center justify-center lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
             >
-              <span className="h-0.5 w-7 bg-ink" />
-              <span className="h-0.5 w-7 bg-ink" />
-              <span className="h-0.5 w-7 bg-ink" />
+              <span
+                aria-hidden="true"
+                className={`absolute h-0.5 w-7 origin-center transform-gpu bg-ink transition-[transform,opacity] duration-500 ease-in-out max-md:w-6 ${
+                  mobileOpen ? "translate-y-0 rotate-45" : "-translate-y-2"
+                }`}
+              />
+              <span
+                aria-hidden="true"
+                className={`absolute h-0.5 w-7 origin-center transform-gpu bg-ink transition-[transform,opacity] duration-500 ease-in-out max-md:w-6 ${
+                  mobileOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+                }`}
+              />
+              <span
+                aria-hidden="true"
+                className={`absolute h-0.5 w-7 origin-center transform-gpu bg-ink transition-[transform,opacity] duration-500 ease-in-out max-md:w-6 ${
+                  mobileOpen ? "translate-y-0 -rotate-45" : "translate-y-2"
+                }`}
+              />
             </button>
             <Link href="/" className="shrink-0">
             <Image
@@ -73,43 +95,57 @@ export default function Header() {
                 Blogs
               </Link>
             </nav>
-            <GetAQuoteButton className="px-3 py-3 lg:px-[39px] lg:py-4" />
+            <GetAQuoteButton className="px-3 py-3 text-[16px] leading-4 lg:px-[39px] lg:py-4" />
           </div>
         </div>
 
-        {mobileOpen && (
-          <div className="border-t border-black/10 bg-white lg:hidden">
-            <div className="mx-auto flex max-w-[1320px] flex-col gap-1 px-5 py-4">
-              <MobileGroup
-                label="Garage Services"
-                items={garageServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
-                pathname={pathname}
-                open={openGroup === "garage"}
-                onToggle={() => setOpenGroup(openGroup === "garage" ? null : "garage")}
-              />
-              <MobileGroup
-                label="Gate Services"
-                items={gateServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
-                pathname={pathname}
-                open={openGroup === "gate"}
-                onToggle={() => setOpenGroup(openGroup === "gate" ? null : "gate")}
-              />
-              <Link href="/about-us" className="py-2" onClick={() => setMobileOpen(false)}>
-                About Us
-              </Link>
-              <Link href="/projects" className="py-2" onClick={() => setMobileOpen(false)}>
-                Projects
-              </Link>
-              <Link href="/blogs" className="py-2" onClick={() => setMobileOpen(false)}>
-                Blogs
-              </Link>
-              <GetAQuoteButton
-                className="mt-2 px-5 py-[15px] sm:hidden lg:px-[39px] lg:py-4"
-                onClick={() => setMobileOpen(false)}
-              />
-            </div>
+        <div
+          id="mobile-navigation"
+          aria-hidden={!mobileOpen}
+          className={`absolute left-0 right-0 top-full z-[60] origin-top overflow-x-hidden overflow-y-auto bg-white shadow-[0_8px_16px_rgba(0,0,0,0.08)] transition-[max-height,opacity,transform] duration-500 ease-out lg:hidden ${
+            mobileOpen
+              ? "min-h-[calc(100dvh-210px)] max-h-[calc(100dvh-210px)] scale-y-100 opacity-100 md:min-h-[calc(100dvh-120px)] md:max-h-[calc(100dvh-120px)]"
+              : "pointer-events-none max-h-0 scale-y-0 opacity-0"
+          }`}
+        >
+          <div className="flex min-h-full w-full flex-col">
+            <MobileGroup
+              label="Garage Services"
+              items={garageServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
+              pathname={pathname}
+              open={openGroup === "garage"}
+              onToggle={() => setOpenGroup(openGroup === "garage" ? null : "garage")}
+            />
+            <MobileGroup
+              label="Gate Services"
+              items={gateServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
+              pathname={pathname}
+              open={openGroup === "gate"}
+              onToggle={() => setOpenGroup(openGroup === "gate" ? null : "gate")}
+            />
+            <Link
+              href="/about-us"
+              className="block border-b border-[#ededed] px-5 py-[27px] text-[15px] leading-[1.2]"
+              onClick={() => setMobileOpen(false)}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/projects"
+              className="block border-b border-[#ededed] px-5 py-[27px] text-[15px] leading-[1.2]"
+              onClick={() => setMobileOpen(false)}
+            >
+              Projects
+            </Link>
+            <Link
+              href="/blogs"
+              className="block px-5 py-[27px] text-[15px] leading-[1.2]"
+              onClick={() => setMobileOpen(false)}
+            >
+              Blogs
+            </Link>
           </div>
-        )}
+        </div>
       </header>
     </>
   );
@@ -185,24 +221,52 @@ function MobileGroup({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-black/5">
-      <button onClick={onToggle} className="flex w-full items-center justify-between py-2">
+    <div className="border-b border-[#ededed]">
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={onToggle}
+        className="flex w-full items-center justify-between px-5 py-[27px] text-left text-[15px] leading-[1.2]"
+      >
         {label}
-        <span>{open ? "−" : "+"}</span>
+        <ChevronIcon open={open} />
       </button>
-      {open && (
-        <div className="flex flex-col gap-1 pb-2 pl-3">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`py-1 text-sm ${isCurrentPath(pathname, item.href) ? "font-semibold text-accent" : "text-ink"}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <div
+        aria-hidden={!open}
+        className={`flex flex-col overflow-hidden pl-5 transition-[max-height,opacity,transform,padding] duration-[450ms] ease-out ${
+          open ? "max-h-[1200px] pb-0 translate-y-0 opacity-100" : "max-h-0 pb-0 -translate-y-1 opacity-0"
+        }`}
+      >
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`border-b border-[#ededed] px-5 py-[27px] text-[15px] leading-[1.2] last:border-b-0 ${isCurrentPath(pathname, item.href) ? "font-semibold text-accent" : "text-ink"}`}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
     </div>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width="14"
+      height="8"
+      viewBox="0 0 12 7"
+      fill="none"
+      className={`shrink-0 transition-transform duration-500 ease-in-out ${open ? "rotate-180" : "rotate-0"}`}
+    >
+      <path
+        d="M1.04794 1.00138L6.02829 5.98173L11.0086 1.00138"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

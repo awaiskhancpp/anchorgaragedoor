@@ -20,7 +20,7 @@ export default function InnerHero({
       <div className="relative z-10 mx-auto flex w-full max-w-[820px] flex-col items-center gap-6 px-5 sm:px-8">
         <h1 className="w-full max-w-full">{title}</h1>
         {description && <p className="mt-[5px] mb-[15px] w-full max-w-full text-[17px] leading-[1.5] text-white">{description}</p>}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:flex-wrap sm:items-center">
           {showDialButton && <DialNowButton />}
           <GetStartedButton />
         </div>

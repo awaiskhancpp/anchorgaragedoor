@@ -50,7 +50,7 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-dark text-white">
-      <div className="bg-dark px-5 pt-[30px] pb-10 md:px-[10px] md:py-[30px] lg:py-[100px]">
+      <div className="bg-dark px-[10px] py-[30px] md:px-[10px] md:py-[30px] lg:py-[100px]">
         <div className="mx-auto block w-full max-w-[1320px] md:grid md:grid-cols-[repeat(3,31.5%)] lg:grid-cols-[40%_30%_30%]">
           <div>
             <Image
@@ -87,8 +87,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h6 className="text-base font-medium leading-normal text-white">What We Offer</h6>
-            <ServiceList items={footerServices.slice(0, 6)} className="mt-7" />
+            <h6 className="text-base font-medium leading-normal text-white mt-7 lg:mt-0">What We Offer</h6>
+            <ServiceList items={footerServices.slice(0, 6)} className="mt-3 lg:mt-7" />
           </div>
 
           <div>
@@ -98,7 +98,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#ffffff3d] bg-dark">
-        <div className={`w-full px-5 pb-[76px] pt-[10px] text-center md:px-[10px] md:py-5 ${FOOTER_MUTED_TEXT}`}>
+        <div className={`w-full px-[10px] pb-[76px] pt-[10px] text-center md:px-[10px] md:py-5 ${FOOTER_MUTED_TEXT}`}>
           <p className="m-0">
             Anchor Garage Door and Gate Services Inc © Copyright <CopyrightYear />.
           </p>
