@@ -3,14 +3,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { garageServices, gateServices } from "@/lib/services";
 import GetAQuoteButton from "@/components/GetAQuoteButton";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<"garage" | "gate" | null>(null);
+  const [menuTop, setMenuTop] = useState(0);
+  const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const updateMenuTop = () => {
+      if (headerRef.current) {
+        setMenuTop(headerRef.current.getBoundingClientRect().bottom);
+      }
+    };
+    updateMenuTop();
+    window.addEventListener("resize", updateMenuTop);
+    return () => window.removeEventListener("resize", updateMenuTop);
+  }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    if (headerRef.current) {
+      setMenuTop(headerRef.current.getBoundingClientRect().bottom);
+    }
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -32,32 +57,32 @@ export default function Header() {
         </div>
       </div>
 
-      <header className="relative sticky top-0 z-50 bg-white shadow-sm">
+      <header ref={headerRef} className="relative sticky top-0 z-50 bg-white shadow-sm">
         <div className="mx-auto flex max-w-[1340px] items-center justify-between gap-4 px-[10px] py-[10px]">
           <div className="flex min-w-0 items-center gap-5 max-md:gap-[10px]">
             <button
               aria-label="Toggle menu"
               aria-controls="mobile-navigation"
               aria-expanded={mobileOpen}
-              className="relative flex h-10 w-[37.5px] shrink-0 items-center justify-center lg:hidden"
+              className="relative flex h-10 w-[37.5px] shrink-0 items-center justify-center text-ink min-[1025px]:hidden"
               onClick={() => setMobileOpen((v) => !v)}
             >
               <span
                 aria-hidden="true"
-                className={`absolute h-0.5 w-7 origin-center transform-gpu bg-ink transition-[transform,opacity] duration-500 ease-in-out max-md:w-6 ${
-                  mobileOpen ? "translate-y-0 rotate-45" : "-translate-y-2"
+                className={`absolute left-1/2 top-1/2 h-0.5 w-6 bg-ink transition-transform duration-300 ease-in-out ${
+                  mobileOpen ? "-translate-x-1/2 -translate-y-1/2 rotate-45" : "-translate-x-1/2 -translate-y-[7px] rotate-0"
                 }`}
               />
               <span
                 aria-hidden="true"
-                className={`absolute h-0.5 w-7 origin-center transform-gpu bg-ink transition-[transform,opacity] duration-500 ease-in-out max-md:w-6 ${
-                  mobileOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+                className={`absolute left-1/2 top-1/2 h-0.5 w-6 bg-ink transition-[transform,opacity] duration-300 ease-in-out ${
+                  mobileOpen ? "-translate-x-1/2 -translate-y-1/2 scale-x-0 opacity-0" : "-translate-x-1/2 -translate-y-1/2 scale-x-100 opacity-100"
                 }`}
               />
               <span
                 aria-hidden="true"
-                className={`absolute h-0.5 w-7 origin-center transform-gpu bg-ink transition-[transform,opacity] duration-500 ease-in-out max-md:w-6 ${
-                  mobileOpen ? "translate-y-0 -rotate-45" : "translate-y-2"
+                className={`absolute left-1/2 top-1/2 h-0.5 w-6 bg-ink transition-transform duration-300 ease-in-out ${
+                  mobileOpen ? "-translate-x-1/2 -translate-y-1/2 -rotate-45" : "-translate-x-1/2 translate-y-[6px] rotate-0"
                 }`}
               />
             </button>
@@ -67,14 +92,14 @@ export default function Header() {
               alt="Anchor Garage Door and Gate Services, Inc"
               width={161}
               height={46}
-              className="h-auto max-md:w-[135px] max-lg:w-[145px] lg:w-[161px]"
+              className="h-auto max-md:w-[135px] max-[1024px]:w-[145px] min-[1025px]:w-[161px]"
               priority
             />
             </Link>
           </div>
 
           <div className="flex items-center gap-3">
-            <nav className="hidden items-center gap-7 lg:flex">
+            <nav className="hidden items-center gap-7 min-[1025px]:flex">
               <NavDropdown
                 label="Garage Services"
                 items={garageServices.map((s) => ({ label: s.title, href: `/service/${s.slug}` }))}
@@ -95,17 +120,18 @@ export default function Header() {
                 Blogs
               </Link>
             </nav>
-            <GetAQuoteButton className="px-3 py-3 text-[16px] leading-4 lg:px-[39px] lg:py-4" />
+            <GetAQuoteButton className="px-3 py-3 text-[16px] leading-4 min-[1025px]:px-[39px] min-[1025px]:py-4" />
           </div>
         </div>
 
         <div
           id="mobile-navigation"
           aria-hidden={!mobileOpen}
-          className={`absolute left-0 right-0 top-full z-[60] origin-top overflow-x-hidden overflow-y-auto bg-white shadow-[0_8px_16px_rgba(0,0,0,0.08)] transition-[max-height,opacity,transform] duration-500 ease-out lg:hidden ${
+          style={{ top: menuTop, height: mobileOpen ? `calc(100dvh - ${menuTop}px)` : 0 }}
+          className={`fixed left-0 right-0 z-[60] origin-top overflow-x-hidden overflow-y-auto bg-white shadow-[0_8px_16px_rgba(0,0,0,0.08)] transition-[height,opacity,transform] duration-500 ease-out min-[1025px]:hidden ${
             mobileOpen
-              ? "min-h-[calc(100dvh-210px)] max-h-[calc(100dvh-210px)] scale-y-100 opacity-100 md:min-h-[calc(100dvh-120px)] md:max-h-[calc(100dvh-120px)]"
-              : "pointer-events-none max-h-0 scale-y-0 opacity-0"
+              ? "scale-y-100 opacity-100"
+              : "pointer-events-none scale-y-0 opacity-0"
           }`}
         >
           <div className="flex min-h-full w-full flex-col">

@@ -98,7 +98,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#ffffff3d] bg-dark">
-        <div className={`w-full px-[10px] pb-[76px] pt-[10px] text-center md:px-[10px] md:py-5 ${FOOTER_MUTED_TEXT}`}>
+        <div className={`w-full px-[10px] pb-[26px] lg:pb-[36px] pt-[10px] text-center md:px-[10px] md:py-5 ${FOOTER_MUTED_TEXT}`}>
           <p className="m-0">
             Anchor Garage Door and Gate Services Inc © Copyright <CopyrightYear />.
           </p>

@@ -50,15 +50,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <InnerHero title={service.title} description={service.shortDescription} image={service.heroImage} />
+      <InnerHero className="service-page-hero" title={service.title} description={service.shortDescription} image={service.heroImage} />
 
-      <section className="relative isolate overflow-hidden bg-white">
+      <section className="service-page-intro relative isolate mt-0 overflow-hidden bg-white max-lg:mb-[30px] max-lg:mt-[30px]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[url('/images/anchor-garage-door-Fav.png')] bg-center bg-no-repeat bg-[length:472px_auto] opacity-[0.06] max-md:bg-[length:300px_auto]"
         />
-        <div className="relative z-10 grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-5">
-          <div className="relative order-2 min-h-[450px] overflow-hidden md:order-1 lg:min-h-[600px]">
+        <div className="service-page-intro-grid relative z-10 grid grid-cols-1 gap-0 max-lg:gap-[15px] lg:grid-cols-[48.6%_minmax(0,1fr)] lg:gap-5">
+          <div className="service-page-intro-image relative order-2 block min-h-[450px] overflow-hidden lg:order-1 lg:min-h-[600px]">
             <Image
               src={service.bodyImage}
               alt={service.title}
@@ -67,7 +67,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               className="object-cover object-center"
             />
           </div>
-          <div className="order-1 flex p-5 md:order-2 md:items-center md:pl-[30px]">
+          <div className="service-page-intro-copy order-1 flex p-5 md:items-center lg:order-2 lg:p-[10px] lg:pl-5 lg:pr-[10px]">
             <div className="w-full lg:w-4/5">
               <h3 className="mb-5 flex items-center gap-4">
                 <span className="relative z-0 grid h-[30px] w-[30px] shrink-0 place-items-center before:absolute before:inset-[-10px] before:-z-10 before:rounded-full before:bg-badge lg:h-[50px] lg:w-[50px]">
@@ -81,7 +81,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </span>
                 {service.title}
               </h3>
-              <div className="space-y-5 text-ink text-[14px] leading-[21px] lg:text-[17px] lg:leading-[1.5]">
+              <div className="space-y-5 text-ink text-[14px] leading-[21px] max-md:space-y-[14.4px] max-md:pb-[14.4px] lg:text-[17px] lg:leading-[1.5]">
                 <p>{service.bodyParagraph}</p>
                 {service.bodyParagraph2 && <p>{service.bodyParagraph2}</p>}
               </div>
@@ -90,7 +90,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <BrandGallery title="Garage Door" logos={garageBrandLogos} />
+      {/* <BrandGallery title="Garage Door" logos={garageBrandLogos} /> */}
 
       <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-[1320px] px-5 sm:px-8">

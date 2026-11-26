@@ -76,7 +76,7 @@ export default function TestimonialStatsSection() {
             Services assured me that it merely needed a few repairs. They saved me so much time, money, and hassle. I
             only wish I’d reached out to them sooner!
           </p>
-          <p className="text-xl font-semibold leading-[1.275] text-eyebrow md:mb-0">JESSICA TREMBLAY</p>
+          <p className="mt-4 text-xl font-semibold leading-[1.275] text-eyebrow md:mb-0">JESSICA TREMBLAY</p>
           <p className="mt-2 text-[17px] leading-normal text-ink md:mt-0">CUSTOMER</p>
         </div>
 

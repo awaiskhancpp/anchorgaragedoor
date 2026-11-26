@@ -36,7 +36,7 @@ export default function Home() {
         items={garageServices}
       />
 
-      <BrandGallery title="Garage Door" logos={garageBrandLogos} />
+      {/* <BrandGallery title="Garage Door" logos={garageBrandLogos} /> */}
 
       <TrustFeatures heading="What we do" items={garageTrust} />
 
@@ -46,7 +46,7 @@ export default function Home() {
         items={gateServices}
       />
 
-      <BrandGallery title="Gate Services" logos={gateBrandLogos} />
+      {/* <BrandGallery title="Gate Services" logos={gateBrandLogos} /> */}
 
       <TestimonialStatsSection />
 
