@@ -32,11 +32,13 @@ export default function ScheduleRequestSection() {
             </p>
           </div>
 
-          <DialNowButton
+          <div className="hidden lg:block">
+            <DialNowButton
             variant="schedule"
             animate={false}
-            className="mt-3 max-[1600px]:mt-[9px] max-md:mt-5"
+            className=" mt-3 max-[1600px]:mt-[9px] max-md:mt-5"
           />
+          </div>
         </div>
 
         <QuickScheduleForm />
