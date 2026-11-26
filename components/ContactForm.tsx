@@ -14,6 +14,7 @@ export default function ContactForm({
   className = "",
   fieldClassName = "",
   textareaClassName = "",
+  captchaClassName = "",
   submitClassName = SUBMIT_DEFAULT,
   submitLabel = "Request Quote",
   showCaptcha = false,
@@ -21,6 +22,7 @@ export default function ContactForm({
   className?: string;
   fieldClassName?: string;
   textareaClassName?: string;
+  captchaClassName?: string;
   submitClassName?: string;
   submitLabel?: string;
   showCaptcha?: boolean;
@@ -66,7 +68,7 @@ export default function ContactForm({
         className={`${field} sm:col-span-2 ${textareaClassName}`}
       />
       <input type="text" name="hp" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {showCaptcha && <CloudflareBadge variant="light" />}
+      {showCaptcha && <CloudflareBadge variant="light" className={captchaClassName} />}
       <button type="submit" className={submitClassName}>
         {submitLabel}
       </button>

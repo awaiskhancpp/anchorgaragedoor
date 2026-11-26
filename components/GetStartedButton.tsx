@@ -7,8 +7,8 @@ type Variant = "dark" | "light" | "outline";
  * - outline: the transparent sidebar CTA on blog posts
  */
 const VARIANT_CLASSES: Record<Variant, string> = {
-  dark: "border border-white bg-white px-[42px] py-5 text-accent hover:border-dark hover:bg-dark hover:text-white",
-  light: "border border-white bg-white px-[42px] py-5 text-accent hover:border-accent hover:bg-accent hover:text-white",
+  dark: "border border-white bg-white px-[42px] py-[19px] max-md:px-[90px] text-accent hover:border-dark hover:bg-dark hover:text-white",
+  light: "border border-white bg-white px-[42px] py-[19px] max-md:px-[90px] text-accent hover:border-accent hover:bg-accent hover:text-white",
   outline: "border border-accent bg-transparent px-[90px] py-[19px] text-accent hover:bg-accent hover:text-white",
 };
 

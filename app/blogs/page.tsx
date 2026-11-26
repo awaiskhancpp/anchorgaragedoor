@@ -12,8 +12,10 @@ export default function BlogsPage() {
   return (
     <>
       <InnerHero
+        tabletCompact
         title="Blogs - Anchor Garage Door and Gate Services, Inc"
         image="/images/body-access-control-installation.webp"
+        // secondaryTitle="Blogs"
       />
 
       <section className="px-5 pb-10 pt-20">

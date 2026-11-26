@@ -4,13 +4,13 @@ import type { BlogPost } from "@/lib/blogPosts";
 
 export default function BlogCardGrid({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-5 min-[1025px]:grid-cols-2">
       {posts.map((post) => (
         <article
           key={post.slug}
           className="flex min-w-0 gap-5 overflow-hidden rounded-[20px] border border-black/[0.13] p-[10px] shadow-[0_0_4px_rgba(0,0,0,0.1)] max-md:flex-col"
         >
-          <Link href={`/${post.slug}`} tabIndex={-1} className="h-full w-2/5 shrink-0 max-md:mb-5 max-md:w-full">
+          <Link href={`/${post.slug}`} tabIndex={-1} className="h-full w-2/5 shrink-0 max-md:h-auto max-md:mb-5 max-md:w-full">
             <div className="relative aspect-[1.22] w-full overflow-hidden rounded-[10px] max-md:aspect-[5/3]">
               <Image src={post.image} alt={post.title} fill className="object-cover" />
             </div>

@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <>
       <div className="bg-accent text-white">
-        <div className="mx-auto flex max-w-[1340px] flex-wrap items-center justify-between gap-2 px-[10px] py-[15px] text-sm max-md:flex-col max-md:items-center max-md:gap-[10px] max-md:px-0 max-md:py-[10px]">
+        <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-2 px-[10px] py-[15px] text-sm max-md:flex-col max-md:items-center max-md:gap-[10px] max-md:px-0 max-md:py-[10px]">
           <a
             href="tel:8332004087"
             className="flex items-center gap-2 text-[16px] max-md:h-[42px] max-md:w-[230px] max-md:items-start max-md:justify-center max-md:gap-0 max-md:text-[12px] max-md:leading-[21px]"
@@ -58,7 +58,7 @@ export default function Header() {
       </div>
 
       <header ref={headerRef} className="relative sticky top-0 z-50 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-[1340px] items-center justify-between gap-4 px-[10px] py-[10px]">
+        <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-[10px] py-[10px]">
           <div className="flex min-w-0 items-center gap-5 max-md:gap-[10px]">
             <button
               aria-label="Toggle menu"
@@ -120,7 +120,7 @@ export default function Header() {
                 Blogs
               </Link>
             </nav>
-            <GetAQuoteButton className="px-3 py-3 text-[16px] leading-4 min-[1025px]:px-[39px] min-[1025px]:py-4" />
+            <GetAQuoteButton className="px-5 py-[15px] text-[16px] leading-4 max-md:px-3 max-md:py-3 min-[1025px]:px-[39px] min-[1025px]:py-4" />
           </div>
         </div>
 

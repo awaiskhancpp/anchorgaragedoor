@@ -16,12 +16,12 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
 
   return (
     <>
-      <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden text-center text-white max-lg:min-h-[60vh] max-md:min-h-[80vh]">
+      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden text-center text-white max-md:min-h-[80vh] min-[1025px]:min-h-[80vh]">
         <Image src={post.image} alt="" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-dark/60" />
         <div className="relative z-10 mx-auto flex w-full max-w-[820px] flex-col items-center gap-5 px-5 sm:px-8">
           <span className="rounded-full bg-accent px-[15px] py-[3px] text-[14px]">{CATEGORIES[0].name}</span>
-          <h1>Blog Details</h1>
+          <h1 className="text-[35px] leading-[45px] max-md:text-[30px] max-md:leading-[40px] min-[1025px]:text-[55px] min-[1025px]:leading-[66px]">Blog Details</h1>
           <p className="flex flex-wrap items-center justify-center gap-2 text-[17px] leading-[1.5] text-white/90 max-lg:text-[14px]">
             <span>Anchor Garage Door and Gate Services, Inc</span>
             <span>&#9642;</span>
@@ -34,9 +34,9 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
         </div>
       </section>
 
-      <section className="px-[10px] pb-5 pt-20 max-lg:pt-10 max-md:pt-10">
-        <div className="mx-auto flex max-w-[1320px] flex-col lg:flex-row">
-          <main className="w-full border-black/20 pb-[10px] lg:w-[70%] lg:border-r lg:pr-[30px]">
+      <section className="px-[10px] pb-5 pt-[60px] max-md:pl-5 max-md:pr-[30px] min-[1025px]:pt-20">
+        <div className="mx-auto flex max-w-[1320px] flex-col gap-5 md:flex-row md:gap-0">
+          <main className="w-full border-black/20 pb-[10px] md:w-[60%] md:border-r md:pl-[10px] md:pr-5 min-[1025px]:w-[70%] min-[1025px]:pl-0 min-[1025px]:pr-[30px]">
             <div className="mb-5 aspect-[11/7] overflow-hidden rounded-[20px] bg-light">
               <Image
                 src={post.image}
@@ -46,7 +46,7 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="mb-4 flex items-center gap-3 text-[14px] text-ink/70">
+            <div className="mb-4 flex items-center gap-3 text-[14px] text-ink/70 max-md:mb-5 max-md:leading-6">
               <span className="flex items-center gap-1.5">
                 <span className="text-accent"><UserCircleIcon /></span>
                 admin
@@ -58,28 +58,28 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
               </span>
             </div>
             <h1 className="mb-5 text-[36px]! leading-[1.2]">{post.title}</h1>
-            <div className="prose-content text-[17px] leading-[1.5] text-ink/80">
+            <div className="prose-content text-[14px] leading-[21px] text-ink/80 min-[1025px]:text-[17px] min-[1025px]:leading-[1.5]">
               {post.content.map((block, i) => {
                 if (block.type === "h2") {
                   return (
-                    <h2 key={i} className="mb-[10px] mt-[10px] text-[32px]! leading-[1.2]">
+                    <h2 key={i} className="mb-4 mt-2 text-[32px]! leading-8 min-[1025px]:mb-[10px] min-[1025px]:mt-[10px] min-[1025px]:leading-[1.2]">
                       {block.text}
                     </h2>
                   );
                 }
                 if (block.type === "h3") {
                   return (
-                    <h3 key={i} className="mb-[10px] mt-[10px] text-[24px]! leading-[1.2]">
+                    <h3 key={i} className="mb-[10px] mt-[10px] text-[24px]! leading-6 min-[1025px]:leading-[1.2]">
                       {block.text}
                     </h3>
                   );
                 }
-                return <p key={i} className="mb-[10px]">{block.text}</p>;
+                return <p key={i} className="mb-[14.4px] min-[1025px]:mb-[10px]">{block.text}</p>;
               })}
             </div>
           </main>
 
-          <aside className="w-full space-y-5 pt-0 lg:w-[30%] lg:pl-5">
+          <aside className="w-full space-y-5 pt-0 md:w-[40%] md:pl-5 min-[1025px]:w-[30%]">
             <div>
               <div className="flex items-stretch overflow-hidden rounded-lg border border-black/10">
                 <input

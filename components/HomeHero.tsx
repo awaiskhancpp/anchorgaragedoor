@@ -111,9 +111,11 @@ export default function HomeHero() {
                 </span>
                 Welcome to Anchor Garage Door and Gate Services
               </p>
-              <h1>{slide.title}</h1>
+              <h1 className="max-md:text-[30px] max-md:leading-[40px] md:text-[35px] md:leading-[45px] min-[1025px]:text-[55px] min-[1025px]:leading-[66px]">
+                {slide.title}
+              </h1>
               <p className="max-w-xl py-0 text-[14px] leading-[21px] text-white max-md:pb-[15px] max-md:pt-[5px] md:text-[17px] md:leading-[1.5]">{slide.description}</p>
-              <div className="flex flex-col items-stretch justify-center gap-5 md:flex-row md:items-center">
+              <div className="flex flex-col items-stretch justify-center gap-5 min-[1025px]:flex-row min-[1025px]:items-center">
                 <DialNowButton variant="dark" className="max-md:leading-4" />
                 <GetStartedButton variant="dark" className="max-md:py-[19px] max-md:leading-4" />
               </div>
